@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://crainax.github.io/"/>
-  <updated>2015-12-30T14:42:02.185Z</updated>
+  <updated>2015-12-30T15:15:01.294Z</updated>
   <id>http://crainax.github.io/</id>
   
   <author>
@@ -16,11 +16,61 @@
   
   <entry>
     <title></title>
+    <link href="http://crainax.github.io/2015/12/30/java%E8%87%AA%E5%8A%A8%E8%A3%85%E7%AE%B1%E6%8B%86%E7%AE%B1%E6%B7%B1%E5%85%A5%E5%89%96%E6%9E%90/"/>
+    <id>http://crainax.github.io/2015/12/30/java自动装箱拆箱深入剖析/</id>
+    <published>2015-12-30T15:15:01.294Z</published>
+    <updated>2015-12-30T15:15:01.294Z</updated>
+    <content type="html"><![CDATA[<blockquote>
+<p>基本数据(Primitive)类型的自动装箱(autoboxing)、拆箱(unboxing)是自J2SE 5.0开始提供的功能。java语言规范中说道：在许多情况下包装与解包装是由编译器自行完成的（在这种情况下包装成为装箱，解包装称为拆箱）</p>
+</blockquote>
+<p>这个是jdk1.5以后才引入的新的内容，作为秉承发表是最好的记忆，毅然决定还是用一篇博客来代替我的记忆：</p>
+<p>java语言规范中说道：在许多情况下包装与解包装是由编译器自行完成的（在这种情况下包装成为装箱，解包装称为拆箱；</p>
+<p>其实按照我自己的理解自动装箱就可以简单的理解为将基本数据类型封装为对象类型，来符合java的面向对象；</p>
+<p>例如用int来举例：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明一个Integer对象</span></span><br><span class="line">Integer num = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//以上的声明就是用到了自动的装箱：解析为</span></span><br><span class="line">Integer num = <span class="keyword">new</span> Integer(<span class="number">10</span>);以上就是一个很好的体现，因为<span class="number">10</span>是属于基本数据类型的，原则上它是不能直接赋值给一个对象Integer的，但jdk1.5后你就可以进行这样的声明，这就是自动装箱的魅力</span><br><span class="line">自动将基本数据类型转化为对应的封装类型。成为一个对象以后就可以调用对象所声明的所有的方法</span><br><span class="line">自动拆箱：故名思议就是将对象重新转化为基本数据类型：</span><br><span class="line"><span class="comment">//装箱</span></span><br><span class="line">Integer num = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//拆箱</span></span><br><span class="line"><span class="keyword">int</span> num1 = num;自动拆箱有个很典型的用法就是在进行运算的时候：因为对象时不恩直接进行运算的，而是要转化为基本数据类型后才能进行加减乘除</span><br><span class="line">Integer num = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//进行计算时隐含的有自动拆箱</span></span><br><span class="line">System.out.print(num--);哈哈 应该感觉很简单吧，下面我再来讲点稍微难点的，</span><br><span class="line"><span class="comment">//在-128~127 之外的数</span></span><br><span class="line">Integer num1 = <span class="number">297</span>; Integer num2 = <span class="number">297</span>;</span><br><span class="line">System.out.println(<span class="string">"num1==num2: "</span>+(num1==num2));</span><br><span class="line"><span class="comment">// 在-128~127 之内的数</span></span><br><span class="line">Integer num3 = <span class="number">97</span>; Integer num4 = <span class="number">97</span>;</span><br><span class="line">System.out.println(<span class="string">"num3==num4: "</span>+(num3==num4)); 打印的结果是：num1==num2: <span class="keyword">false</span> num3==num4: <span class="keyword">true</span></span><br></pre></td></tr></table></figure></p>
+<p>很奇怪吧：这就归结于java对于Integer与int的自动装箱与拆箱的设计，是一种模式：叫享元模式（flyweight）</p>
+<p>为了加大对简单数字的重利用，java定义：在自动装箱时对于值从–128到127之间的值，它们被装箱为Integer对象后，会存在内存中被重用，始终只存在一个对象</p>
+<p>而如果超过了从–128到127之间的值，被装箱后的Integer对象并不会被重用，即相当于每次装箱时都新建一个Integer对象；明白了吧</p>
+<p>以上的现象是由于使用了自动装箱所引起的，如果你没有使用自动装箱，而是跟一般类一样，用new来进行实例化，就会每次new就都一个新的对象；</p>
+<p>这个的自动装箱拆箱不仅在基本数据类型中有应用，在String类中也有应用，比如我们经常声明一个String对象时：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">String str = <span class="string">"sl"</span>;</span><br><span class="line"><span class="comment">//代替下面的声明方式</span></span><br><span class="line">String str = <span class="keyword">new</span> String(<span class="string">"sl"</span>);</span><br></pre></td></tr></table></figure></p>
+<p>基本数据(Primitive)类型的自动装箱(autoboxing)、拆箱(unboxing)是自J2SE5.0开始提供的功能。虽然为您打包基本数据类型提供了方便，但提供方便的同时表示隐藏了细节，建议在能够区分基本数据类型与对象的差别时再使用。</p>
+<h4 id="autoboxing_u548Cunboxing"><a href="#autoboxing_u548Cunboxing" class="headerlink" title="autoboxing和unboxing"></a>autoboxing和unboxing</h4><p>在Java中，所有要处理的东西几乎都是对象(Object)，例如之前所使用的Scanner是对象，字符串(String)也是对象，之后还会看到更多的对象。然而基本(Primitive)数据类型不是对象，也就是您使用int、double、boolean等定义的变量，以及您在中直接写下的字面常量。</p>
+<p>在前一个小节中已经大致看到了操作对象的方便性，而使用Java有一段时间的人都知道，有时需要将基本数据类型转换为对象。例如使用Map对象要put()方法时，需要传入的参数是对象而不是基本数据类型。<br>要使用打包类型(Wrapper Types)才能将基本数据类型包装为对象，前一个小节中您已经知道在J2SE5.0之前，要使用以下语句才能将int包装为一个Integer对象：Integer integer = new Integer(10);</p>
+<p>在 J2SE 5.0之后提供了自动装箱的功能，您可以直接使用以下语句来打包基本数据类型：Integer integer = 10;<br>在进行编译时，编译器再自动根据您写下的语句，判断是否进行自动装箱动作。在上例中integer参考的会是Integer类的实例。同样的动作可以适用于boolean、byte、short、char、long、float、double等基本数据类型，分别会使用对应的打包类型(Wrapper Types)Boolean、Byte、Short、Character、Long、Float或Double。</p>
+<p>下面直接使用自动装箱功能来改写范例 4.4。</p>
+<p><strong>范例4.5 AutoBoxDemo.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AutoBoxDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer data1 = <span class="number">10</span>;</span><br><span class="line">        Integer data2 = <span class="number">20</span>;</span><br><span class="line">        <span class="comment">// 转为double值再除以3</span></span><br><span class="line">        System.out.println(data1.doubleValue() / <span class="number">3</span>);</span><br><span class="line">        <span class="comment">// 进行两个值的比较</span></span><br><span class="line">        System.out.println(data1.compareTo(data2));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>程序看来简洁了许多，data1与data2在运行时就是Integer的实例，可以直接进行对象操作。的结果如下：</p>
+<p>3.3333333333333335</p>
+<p>–1</p>
+<p>自动装箱运用的方法还可以如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">Integer integer = i;</span><br></pre></td></tr></table></figure></p>
+<p>也可以使用更一般化的java.lang.Number类来自动装箱。例如：<br>Number number = 3.14f;<br>3.14f会先被自动装箱为Float，然后指定给number。<br>从J2SE5.0开始可以自动装箱，也可以自动拆箱(unboxing)，也就是将对象中的基本数据形态信息从对象中自动取出。例如下面这样写是可以的：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer fooInteger = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> fooPrimitive = fooInteger;</span><br></pre></td></tr></table></figure></p>
+<p>fooInteger引用至自动装箱为Integer的实例后，如果被指定给一个int类型的变量fooPrimitive，则会自动变为int类型再指定给fooPrimitive。在运算时，也可以进行自动装箱与拆箱。例如：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Integer i = <span class="number">10</span>;</span><br><span class="line">System.out.println(i + <span class="number">10</span>);</span><br><span class="line">System.out.println(i++);</span><br></pre></td></tr></table></figure></p>
+<p>上例中会显示20与10，编译器会自动进行自动装箱与拆箱，也就是10会先被装箱，然后在i + 10时会先拆箱，进行加法运算；i++该行也是先拆箱再进行递增运算。再来看一个例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Boolean boo = <span class="keyword">true</span>;</span><br><span class="line">System.out.println(boo &amp;&amp; <span class="keyword">false</span>);</span><br></pre></td></tr></table></figure></p>
+<p>同样的boo原来是Boolean的实例，在进行AND运算时，会先将boo拆箱，再与false进行AND运算，结果会显示false。</p>
+<hr>
+<p>装箱：从基本类型转换成Object类型，称之为装箱；<br>拆箱：从Object转换乘基本类型的操作，称之为拆箱。 这个操作在反射过程中用的比较的多。<br>装箱：在堆中建立一个Object实例，把你指定的值复制成去；<br>拆箱：判别引用指向的堆中信息是否是要拆成的类型，是取出堆中值送给栈中变量，否则报异常</p>
+<hr>
+<p>装箱是值类型到object类型或到该值类型所实现的任何接口类型的隐士转换。<br>将一个值类型装箱会分配一个对象实例并将该值复制到新的对象中。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">123</span>;</span><br><span class="line">object o=i;</span><br></pre></td></tr></table></figure></p>
+<p>这句话的结果是在堆栈上创建一个对象o,而该对象在堆上引用int类型的值。该值是赋值给变量i<br>的值类型值的一个副本。<br><strong>下面是显示执行装箱转换:</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">123</span>;</span><br><span class="line">ojbect o=(object)i;</span><br></pre></td></tr></table></figure></p>
+<p>此例将整数变量i通过装箱转换为对象o。这样，存储在变量i中的值就从123改为456。此例显示对象保留了内容的原始副本。即123。<br>取消装箱是从object类型到值类型或从接口类型到实现该接口的值类型的显示转换。取消装箱操作包括：<br>检查对象实例，确保它是给定值类型的一个装箱值。<br>将该值从实例复制到值类型变量中。<br>例子：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">123</span>;</span><br><span class="line">object box=i;</span><br><span class="line"><span class="keyword">int</span> j=(<span class="keyword">int</span>)box;</span><br></pre></td></tr></table></figure></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<blockquote>
+<p>基本数据(Primitive)类型的自动装箱(autoboxing)、拆箱(unboxing)是自J2SE 5.0开始提供的功能。java语言规范中说道：在许多情况下包装与解包装是由编译器自行完成的（在这种情况下包装成为装箱，解包装称为拆箱）</p]]>
+    </summary>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="http://crainax.github.io/2015/12/30/Read/"/>
     <id>http://crainax.github.io/2015/12/30/Read/</id>
-    <published>2015-12-30T14:42:02.185Z</published>
-    <updated>2015-12-30T14:42:02.185Z</updated>
-    <content type="html"><![CDATA[<h4 id="u6536_u85CF_u7CBE_u9009_u535A_u6587"><a href="#u6536_u85CF_u7CBE_u9009_u535A_u6587" class="headerlink" title="收藏精选博文"></a>收藏精选博文</h4>]]></content>
+    <published>2015-12-30T14:48:52.079Z</published>
+    <updated>2015-12-30T14:48:52.079Z</updated>
+    <content type="html"><![CDATA[<h4 id="u6536_u85CF_u7CBE_u9009_u535A_u6587"><a href="#u6536_u85CF_u7CBE_u9009_u535A_u6587" class="headerlink" title="收藏精选博文"></a>收藏精选博文</h4><blockquote>
+<p>引言</p>
+</blockquote>
+<p>&gt;</p>
+]]></content>
     <summary type="html">
     <![CDATA[<h4 id="u6536_u85CF_u7CBE_u9009_u535A_u6587"><a href="#u6536_u85CF_u7CBE_u9009_u535A_u6587" class="headerlink" title="收藏精选博文"></a>收藏精选博文</h4]]>
     </summary>
