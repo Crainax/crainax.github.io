@@ -202,6 +202,124 @@
             
               
                 
+                <a class="post-title-link" href="/2016/01/02/daily/android每日阅读笔记汇总/" itemprop="url">
+                  android每日阅读笔记汇总
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-01-02T01:05:34+08:00" content="2016-01-02">
+              2016-01-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分類於
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/daily/" itemprop="url" rel="index">
+                    <span itemprop="name">daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h1 id="android_u7CFB_u7EDF"><a href="#android_u7CFB_u7EDF" class="headerlink" title="android系统"></a>android系统</h1><h2 id="u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><a href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58" class="headerlink" title="获取android设备中的可用内存"></a>获取android设备中的可用内存</h2><blockquote>
+<p>ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可能上,totalMem–总内存,threshold–低内存的阈值,即区分是否低内在的临界值,lowMemory–是否处于低 内存.</p>
+</blockquote>
+<ul>
+<li><a href="http://blog.csdn.net/xujinsmile/article/details/8464327" target="_blank" rel="external">Android开发学习笔记（十二） 获取系统可用内存</a>(16/01/01)<br>(关键字:Formatter,内存,MemoryInfo)</li>
+<li><blockquote>
+<h4 id="anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><a href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29" class="headerlink" title="anrdoid群英传(16/01/01)"></a>anrdoid群英传(16/01/01)</h4><p>使用 ActivityManager下的RunningAppProocessInfo可以获取到运行进程的信息,比如说以下信息:</p>
+<ul>
+<li>processName,进程名字</li>
+<li>pid,进程pid</li>
+<li>udi,进程uid<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用ActivityManager下的MemoryInfo去获取内存信息.</span></span><br><span class="line">ActivityManager.MemoryInfo memoryInfo = <span class="keyword">new</span> ActivityManager.MemoryInfo();</span><br><span class="line">am.getMemoryInfo(memoryInfo);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.availMem) + <span class="string">","</span>);</span><br><span class="line">tv.append(memoryInfo.lowMemory + <span class="string">","</span>);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.threshold) + <span class="string">","</span>);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.totalMem) + <span class="string">","</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong><br>而RunningServiceInfo与上央类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.<br>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>(关键字:ActivityManager,Info,应用信息,系统内存)</p>
+<ul>
+<li><a href="http://blog.csdn.net/hudashi/article/details/7050897" target="_blank" rel="external">Android中如何查看内存(上)</a>(16/01/01)<br>(关键字:底层,内存,pss,dalvik,ActivityManager,MemoryInfo,adb,shell)</li>
+</ul>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2015/12/31/初次探索java 注解(Annotation)/" itemprop="url">
                   初次探索java注解(Annotation)
                 </a>
@@ -439,7 +557,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
