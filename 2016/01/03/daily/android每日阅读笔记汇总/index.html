@@ -40,6 +40,8 @@
 
 
 
+  
+
 
   <link rel="alternate" href="/atom.xml" title="梦醒依旧流年." type="application/atom+xml" />
 
@@ -60,14 +62,14 @@ ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可
 Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键字:Formatter,内存,M">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android每日阅读笔记汇总">
-<meta property="og:url" content="http://crainax.github.io/2016/01/02/daily/android每日阅读笔记汇总/index.html">
+<meta property="og:url" content="http://crainax.github.io/2016/01/03/daily/android每日阅读笔记汇总/index.html">
 <meta property="og:site_name" content="梦醒依旧流年.">
 <meta property="og:description" content="android系统获取android设备中的可用内存
 ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可能上,totalMem–总内存,threshold–低内存的阈值,即区分是否低内在的临界值,lowMemory–是否处于低 内存.
 
 
 Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键字:Formatter,内存,M">
-<meta property="og:updated_time" content="2016-01-01T17:05:34.040Z">
+<meta property="og:updated_time" content="2016-01-02T16:02:06.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android每日阅读笔记汇总">
 <meta name="twitter:description" content="android系统获取android设备中的可用内存
@@ -215,8 +217,8 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2016-01-02T01:05:34+08:00" content="2016-01-02">
-              2016-01-02
+            <time itemprop="dateCreated" datetime="2016-01-03T00:02:06+08:00" content="2016-01-03">
+              2016-01-03
             </time>
           </span>
 
@@ -271,7 +273,7 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
 </li>
 </ul>
 <blockquote>
-<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong><br>而RunningServiceInfo与上央类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.<br>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong> 而RunningServiceInfo与上面类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.<br>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>(关键字:ActivityManager,Info,应用信息,系统内存)</p>
 <ul>
@@ -288,17 +290,13 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/31/初次探索java 注解(Annotation)/" rel="next" title="初次探索java注解(Annotation)">
-                <i class="fa fa-chevron-left"></i> 初次探索java注解(Annotation)
+              <a href="/2016/01/02/daily/java每日阅读笔记汇总/" rel="next" title="java每日阅读笔记汇总">
+                <i class="fa fa-chevron-left"></i> java每日阅读笔记汇总
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/02/daily/java每日阅读笔记汇总/" rel="prev" title="java每日阅读笔记汇总">
-                java每日阅读笔记汇总 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
