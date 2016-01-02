@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://crainax.github.io/"/>
-  <updated>2016-01-01T17:05:34.040Z</updated>
+  <updated>2016-01-02T15:57:54.118Z</updated>
   <id>http://crainax.github.io/</id>
   
   <author>
@@ -13,6 +13,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[java每日阅读笔记汇总]]></title>
+    <link href="http://crainax.github.io/2016/01/02/daily/java%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/"/>
+    <id>http://crainax.github.io/2016/01/02/daily/java每日阅读笔记汇总/</id>
+    <published>2016-01-02T15:57:54.118Z</published>
+    <updated>2016-01-02T15:57:54.118Z</updated>
+    <content type="html"><![CDATA[<h1 id="java_u57FA_u672C_u7C7B_u578B"><a href="#java_u57FA_u672C_u7C7B_u578B" class="headerlink" title="java基本类型"></a>java基本类型</h1><h2 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F" class="headerlink" title="四道Java基础题 你能对几道？"></a>四道Java基础题 你能对几道？</h2><h3 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<h3 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29" class="headerlink" title="四道Java基础题 你能对几道？(15/12/30)"></a><a href="http://blog.csdn.net/soul_code/article/details/50369947" target="_blank" rel="external">四道Java基础题 你能对几道？</a>(15/12/30)</h3><p>一、==符在Integer中的判断<br>二、==在String中的判断<br>三、final关键字在内部类中的作用<br>四、Integer与int的几个判断<br>(关键字: 装箱,拆箱,final,常量池)</p>
+</blockquote>
+<h3 id="u6269_u5C55_u9605_u8BFB"><a href="#u6269_u5C55_u9605_u8BFB" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
+<li><a href="http://www.cnblogs.com/dolphin0520/p/3780005.html" target="_blank" rel="external">深入剖析Java中的装箱和拆箱</a>(15/12/30)<br>(关键字:javap 反编译,装箱,拆箱, valueOf)</li>
+<li><a href="http://www.jb51.net/article/31934.htm" target="_blank" rel="external">java自动装箱拆箱深入剖析</a>(15/12/30)<br>(关键字:装箱,拆箱,javaSE5.0,享元模式,flyWeight)</li>
+<li><a href="http://www.cnblogs.com/iyangyuan/p/4631696.html" target="_blank" rel="external">触摸java常量池</a>(15/12/30)<br>(关键字:常量池,jvm虚拟机,编译时期,class文件构造,jvm参数,)</li>
+<li><a href="http://blog.csdn.net/olanlanxiari/article/details/8104505" target="_blank" rel="external">java常量池概念</a>(15/12/30)<br>(关键字:Integer源码,常量池)</li>
+</ul>
+<hr>
+<h1 id="java__u6CE8_u89E3"><a href="#java__u6CE8_u89E3" class="headerlink" title="java 注解"></a>java 注解</h1><h2 id="u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29"><a href="#u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29" class="headerlink" title="初次接触java 注解(Annotation)"></a>初次接触java 注解(Annotation)</h2><h3 id="u6269_u5C55_u9605_u8BFB-1"><a href="#u6269_u5C55_u9605_u8BFB-1" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
+<li><a href="http://blog.csdn.net/mddy2001/article/details/8291484" target="_blank" rel="external">@SuppressWarnings的使用、作用、用法</a>(15/12/31)<br>(关键字: 注解,SuppressWarnings,参数)</li>
+<li><a href="http://blog.csdn.net/cighao/article/details/50295751" target="_blank" rel="external">全面解析 Java 注解</a>(15/12/31)<br>(关键字:注解, )</li>
+</ul>
+<hr>
+<h1 id="java__u679A_u4E3E"><a href="#java__u679A_u4E3E" class="headerlink" title="java 枚举"></a>java 枚举</h1><h2 id="u521D_u6B21_u63A5_u89E6java__u679A_u4E3E_28Enum_29"><a href="#u521D_u6B21_u63A5_u89E6java__u679A_u4E3E_28Enum_29" class="headerlink" title="初次接触java 枚举(Enum)"></a>初次接触java 枚举(Enum)</h2><h3 id="u6269_u5C55_u9605_u8BFB-2"><a href="#u6269_u5C55_u9605_u8BFB-2" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
+<li><a href="http://blog.csdn.net/soul_code/article/details/50440183" target="_blank" rel="external">Java高级特性枚举</a>(16/01/02)<br><a href="https://github.com/Crainax/DemoCode/blob/master/Java/Demo/Demo_Enum/EnumTest.java" target="_blank" rel="external">点击查看demo代码</a><br>(关键字:枚举)</li>
+</ul>
+]]></content>
+    <summary type="html">
+    <![CDATA[<h1 id="java_u57FA_u672C_u7C7B_u578B"><a href="#java_u57FA_u672C_u7C7B_u578B" class="headerlink" title="java基本类型"></a>java基本类型</h1><h2 id="u]]>
+    </summary>
+    
+      <category term="daily" scheme="http://crainax.github.io/categories/daily/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[android每日阅读笔记汇总]]></title>
@@ -77,34 +110,6 @@
     </summary>
     
       <category term="java" scheme="http://crainax.github.io/categories/java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[java每日阅读笔记汇总]]></title>
-    <link href="http://crainax.github.io/2015/12/31/daily/java%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/"/>
-    <id>http://crainax.github.io/2015/12/31/daily/java每日阅读笔记汇总/</id>
-    <published>2015-12-31T04:19:46.213Z</published>
-    <updated>2015-12-31T04:19:46.213Z</updated>
-    <content type="html"><![CDATA[<h1 id="java_u57FA_u672C_u7C7B_u578B"><a href="#java_u57FA_u672C_u7C7B_u578B" class="headerlink" title="java基本类型"></a>java基本类型</h1><h2 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F" class="headerlink" title="四道Java基础题 你能对几道？"></a>四道Java基础题 你能对几道？</h2><h3 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h3><blockquote>
-<h3 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29" class="headerlink" title="四道Java基础题 你能对几道？(15/12/30)"></a><a href="http://blog.csdn.net/soul_code/article/details/50369947" target="_blank" rel="external">四道Java基础题 你能对几道？</a>(15/12/30)</h3><p>一、==符在Integer中的判断<br>二、==在String中的判断<br>三、final关键字在内部类中的作用<br>四、Integer与int的几个判断<br>(关键字: 装箱,拆箱,final,常量池)</p>
-</blockquote>
-<h3 id="u6269_u5C55_u9605_u8BFB"><a href="#u6269_u5C55_u9605_u8BFB" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
-<li><a href="http://www.cnblogs.com/dolphin0520/p/3780005.html" target="_blank" rel="external">深入剖析Java中的装箱和拆箱</a>(15/12/30)<br>(关键字:javap 反编译,装箱,拆箱, valueOf)</li>
-<li><a href="http://www.jb51.net/article/31934.htm" target="_blank" rel="external">java自动装箱拆箱深入剖析</a>(15/12/30)<br>(关键字:装箱,拆箱,javaSE5.0,享元模式,flyWeight)</li>
-<li><a href="http://www.cnblogs.com/iyangyuan/p/4631696.html" target="_blank" rel="external">触摸java常量池</a>(15/12/30)<br>(关键字:常量池,jvm虚拟机,编译时期,class文件构造,jvm参数,)</li>
-<li><a href="http://blog.csdn.net/olanlanxiari/article/details/8104505" target="_blank" rel="external">java常量池概念</a>(15/12/30)<br>(关键字:Integer源码,常量池)</li>
-</ul>
-<h1 id="java__u6CE8_u89E3"><a href="#java__u6CE8_u89E3" class="headerlink" title="java 注解"></a>java 注解</h1><h2 id="u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29"><a href="#u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29" class="headerlink" title="初次接触java 注解(Annotation)"></a>初次接触java 注解(Annotation)</h2><h3 id="u6269_u5C55_u9605_u8BFB-1"><a href="#u6269_u5C55_u9605_u8BFB-1" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
-<li><a href="http://blog.csdn.net/mddy2001/article/details/8291484" target="_blank" rel="external">@SuppressWarnings的使用、作用、用法</a>(15/12/31)<br>(关键字: 注解,SuppressWarnings,参数)</li>
-<li><a href="http://blog.csdn.net/cighao/article/details/50295751" target="_blank" rel="external">全面解析 Java 注解</a>(15/12/31)<br>(关键字:注解, )</li>
-</ul>
-]]></content>
-    <summary type="html">
-    <![CDATA[<h1 id="java_u57FA_u672C_u7C7B_u578B"><a href="#java_u57FA_u672C_u7C7B_u578B" class="headerlink" title="java基本类型"></a>java基本类型</h1><h2 id="u]]>
-    </summary>
-    
-      <category term="daily" scheme="http://crainax.github.io/categories/daily/"/>
     
   </entry>
   
