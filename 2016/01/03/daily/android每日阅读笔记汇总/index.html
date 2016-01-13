@@ -69,7 +69,7 @@ ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可
 
 
 Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键字:Formatter,内存,M">
-<meta property="og:updated_time" content="2016-01-02T16:02:06.032Z">
+<meta property="og:updated_time" content="2016-01-03T07:30:29.221Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android每日阅读笔记汇总">
 <meta name="twitter:description" content="android系统获取android设备中的可用内存
@@ -83,7 +83,7 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: '',
-    sidebar: 'post',
+    sidebar: 'always',
     motion: true
   };
 </script>
@@ -91,7 +91,7 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
   <title> android每日阅读笔记汇总 | 梦醒依旧流年. </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="Chinese">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   <!--[if lte IE 8]>
   <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
@@ -105,6 +105,16 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
   
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dbff5548869ec83e45508084cdfc0f47";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -138,7 +148,7 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu menu-left">
       
         
         <li class="menu-item menu-item-home">
@@ -146,7 +156,7 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            首頁
+            首页
           </a>
         </li>
       
@@ -156,7 +166,7 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            歸檔
+            归档
           </a>
         </li>
       
@@ -166,16 +176,42 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            標籤
+            标签
           </a>
         </li>
       
 
       
       
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'iHq3__LJhtPGwFabKPks','2.0.0');
+</script>
+
+
+
+    </div>
   
 </nav>
 
@@ -216,15 +252,15 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
-            <time itemprop="dateCreated" datetime="2016-01-03T00:02:06+08:00" content="2016-01-03">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-03T15:30:29+08:00" content="2016-01-03">
               2016-01-03
             </time>
           </span>
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/daily/" itemprop="url" rel="index">
@@ -240,6 +276,13 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
           
 
           
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/03/daily/android每日阅读笔记汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/daily/android每日阅读笔记汇总/" itemprop="commentsCount"></span>
+                </a>
+              </span>
             
           
 
@@ -270,15 +313,21 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
 </li>
 </ul>
 </blockquote>
+<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong> 而RunningServiceInfo与上面类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.</p>
+<blockquote>
+<p>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 </ul>
-<blockquote>
-<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong> 而RunningServiceInfo与上面类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.<br>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
 <p>(关键字:ActivityManager,Info,应用信息,系统内存)</p>
 <ul>
 <li><a href="http://blog.csdn.net/hudashi/article/details/7050897" target="_blank" rel="external">Android中如何查看内存(上)</a>(16/01/01)<br>(关键字:底层,内存,pss,dalvik,ActivityManager,MemoryInfo,adb,shell)</li>
 </ul>
+<h1 id="android__u4F18_u5316"><a href="#android__u4F18_u5316" class="headerlink" title="android 优化"></a>android 优化</h1><h3 id="android__u5185_u5B58_u6CC4_u9732"><a href="#android__u5185_u5B58_u6CC4_u9732" class="headerlink" title="android 内存泄露"></a>android 内存泄露</h3><h4 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h4><blockquote>
+<p>在MVP模式中,可以将Presenter中的mActivity设置成弱引用,这样如果在Presenter中要执行一些耗时操作而持有activity不能被回收导致内存泄露的情况发生.<br>那么,如果设置成弱引用不会出现随意被垃圾收集器处理的情况,而出现Presenter引用到activity对象的null情况吗?<br><strong> 答案: 在android 原生的某个地方已经将activity设置为强引用了,这也是activity的生命周期的实现原理,所以此时不需要担心这个问题,而需要注意当系统本应该清除activity时候能保证也能正常处理就行了. </strong></p>
+</blockquote>
+<p><a href="http://blog.csdn.net/cyq1028/article/details/19980369" target="_blank" rel="external">Android内存泄漏分析及调试</a>(16/01/03)<br>(关键字:内存泄露,GC,Handler,MAT,引用类型)<br><a href="http://blog.csdn.net/stevenhu_223/article/details/18360397" target="_blank" rel="external">Android中的软引用(SoftRefrerence)和弱引用(WeakReference)</a>(16/01/03)<br>(关键字:引用类型,内存泄露,缓存机制)<br><a href="http://my.oschina.net/ydsakyclguozi/blog/404389?fromerr=n0OZIKDE" target="_blank" rel="external">Java 7之基础 - 强引用、弱引用、软引用、虚引用</a>(16/01/03)<br>(关键字:引用类型,生命周期)<br><a href="http://blog.sina.cn/dpool/blog/s/blog_4e1e357d0101kig2.html" target="_blank" rel="external">为什么在 activity中 使用handler为甚要声明为静态的</a>(16/01/03)<br>(关键字:Handler,内存泄露,静态类型)</p>
 </span>
       
     </div>
@@ -323,6 +372,10 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
         
   <div class="comments" id="comments">
     
+      <div class="ds-thread" data-thread-key="2016/01/03/daily/android每日阅读笔记汇总/"
+           data-title="android每日阅读笔记汇总" data-url="http://crainax.github.io/2016/01/03/daily/android每日阅读笔记汇总/">
+      </div>
+    
   </div>
 
 
@@ -347,17 +400,17 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            站点概览
           </li>
         </ul>
       
 
       <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Crainax" itemprop="image"/>
+          <img class="site-author-image" src="http://7xpmqf.com1.z0.glb.clouddn.com/16-1-13/75773997.jpg" alt="Crainax" itemprop="image"/>
           <p class="site-author-name" itemprop="name">Crainax</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Crainax's Blog.</p>
@@ -365,21 +418,21 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
               <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">分類</span>
+              <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
               <span class="site-state-item-count">0</span>
-              <span class="site-state-item-name">標籤</span>
+              <span class="site-state-item-name">标签</span>
               </a>
           </div>
 
@@ -417,7 +470,7 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android_u7CFB_u7EDF"><span class="nav-number">1.</span> <span class="nav-text">android系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><span class="nav-number">1.1.</span> <span class="nav-text">获取android设备中的可用内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">anrdoid群英传(16/01/01)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android_u7CFB_u7EDF"><span class="nav-number">1.</span> <span class="nav-text">android系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><span class="nav-number">1.1.</span> <span class="nav-text">获取android设备中的可用内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">anrdoid群英传(16/01/01)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u4F18_u5316"><span class="nav-number">2.</span> <span class="nav-text">android 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#android__u5185_u5B58_u6CC4_u9732"><span class="nav-number">2.0.1.</span> <span class="nav-text">android 内存泄露</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5F15_u8A00"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">引言</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -446,11 +499,11 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  主題 -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT
   </a>
@@ -471,11 +524,28 @@ Android开发学习笔记（十二） 获取系统可用内存(16/01/01)(关键�
 
   
     
-    
 
   
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"crainax"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
 
 
+    
   
 
   

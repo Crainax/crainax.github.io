@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://crainax.github.io/"/>
-  <updated>2016-01-02T16:02:06.032Z</updated>
+  <updated>2016-01-03T07:30:29.221Z</updated>
   <id>http://crainax.github.io/</id>
   
   <author>
@@ -18,8 +18,8 @@
     <title><![CDATA[android每日阅读笔记汇总]]></title>
     <link href="http://crainax.github.io/2016/01/03/daily/android%E6%AF%8F%E6%97%A5%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%E6%B1%87%E6%80%BB/"/>
     <id>http://crainax.github.io/2016/01/03/daily/android每日阅读笔记汇总/</id>
-    <published>2016-01-02T16:02:06.032Z</published>
-    <updated>2016-01-02T16:02:06.032Z</updated>
+    <published>2016-01-03T07:30:29.221Z</published>
+    <updated>2016-01-03T07:30:29.221Z</updated>
     <content type="html"><![CDATA[<h1 id="android_u7CFB_u7EDF"><a href="#android_u7CFB_u7EDF" class="headerlink" title="android系统"></a>android系统</h1><h2 id="u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><a href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58" class="headerlink" title="获取android设备中的可用内存"></a>获取android设备中的可用内存</h2><blockquote>
 <p>ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可能上,totalMem–总内存,threshold–低内存的阈值,即区分是否低内在的临界值,lowMemory–是否处于低 内存.</p>
 </blockquote>
@@ -34,15 +34,21 @@
 </li>
 </ul>
 </blockquote>
+<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong> 而RunningServiceInfo与上面类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.</p>
+<blockquote>
+<p>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
 </li>
 </ul>
-<blockquote>
-<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong> 而RunningServiceInfo与上面类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.<br>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
 <p>(关键字:ActivityManager,Info,应用信息,系统内存)</p>
 <ul>
 <li><a href="http://blog.csdn.net/hudashi/article/details/7050897" target="_blank" rel="external">Android中如何查看内存(上)</a>(16/01/01)<br>(关键字:底层,内存,pss,dalvik,ActivityManager,MemoryInfo,adb,shell)</li>
 </ul>
+<h1 id="android__u4F18_u5316"><a href="#android__u4F18_u5316" class="headerlink" title="android 优化"></a>android 优化</h1><h3 id="android__u5185_u5B58_u6CC4_u9732"><a href="#android__u5185_u5B58_u6CC4_u9732" class="headerlink" title="android 内存泄露"></a>android 内存泄露</h3><h4 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h4><blockquote>
+<p>在MVP模式中,可以将Presenter中的mActivity设置成弱引用,这样如果在Presenter中要执行一些耗时操作而持有activity不能被回收导致内存泄露的情况发生.<br>那么,如果设置成弱引用不会出现随意被垃圾收集器处理的情况,而出现Presenter引用到activity对象的null情况吗?<br><strong> 答案: 在android 原生的某个地方已经将activity设置为强引用了,这也是activity的生命周期的实现原理,所以此时不需要担心这个问题,而需要注意当系统本应该清除activity时候能保证也能正常处理就行了. </strong></p>
+</blockquote>
+<p><a href="http://blog.csdn.net/cyq1028/article/details/19980369" target="_blank" rel="external">Android内存泄漏分析及调试</a>(16/01/03)<br>(关键字:内存泄露,GC,Handler,MAT,引用类型)<br><a href="http://blog.csdn.net/stevenhu_223/article/details/18360397" target="_blank" rel="external">Android中的软引用(SoftRefrerence)和弱引用(WeakReference)</a>(16/01/03)<br>(关键字:引用类型,内存泄露,缓存机制)<br><a href="http://my.oschina.net/ydsakyclguozi/blog/404389?fromerr=n0OZIKDE" target="_blank" rel="external">Java 7之基础 - 强引用、弱引用、软引用、虚引用</a>(16/01/03)<br>(关键字:引用类型,生命周期)<br><a href="http://blog.sina.cn/dpool/blog/s/blog_4e1e357d0101kig2.html" target="_blank" rel="external">为什么在 activity中 使用handler为甚要声明为静态的</a>(16/01/03)<br>(关键字:Handler,内存泄露,静态类型)</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<h1 id="android_u7CFB_u7EDF"><a href="#android_u7CFB_u7EDF" class="headerlink" title="android系统"></a>android系统</h1><h2 id="u83B7_u53D6androi]]>
