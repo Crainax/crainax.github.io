@@ -148,6 +148,26 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -238,7 +258,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/03/daily/android每日阅读笔记汇总/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/19/daily/android每日阅读笔记汇总/" itemprop="url">
                   android每日阅读笔记汇总
                 </a>
               
@@ -249,8 +269,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-03T15:30:29+08:00" content="2016-01-03">
-              2016-01-03
+            <time itemprop="dateCreated" datetime="2016-01-19T23:28:33+08:00" content="2016-01-19">
+              2016-01-19
             </time>
           </span>
 
@@ -275,8 +295,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/03/daily/android每日阅读笔记汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/03/daily/android每日阅读笔记汇总/" itemprop="commentsCount"></span>
+                <a href="/2016/01/19/daily/android每日阅读笔记汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/19/daily/android每日阅读笔记汇总/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -298,38 +318,18 @@
         
           <span itemprop="articleBody">
             
-              <h1 id="android_u7CFB_u7EDF"><a href="#android_u7CFB_u7EDF" class="headerlink" title="android系统"></a>android系统</h1><h2 id="u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><a href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58" class="headerlink" title="获取android设备中的可用内存"></a>获取android设备中的可用内存</h2><blockquote>
-<p>ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可能上,totalMem–总内存,threshold–低内存的阈值,即区分是否低内在的临界值,lowMemory–是否处于低 内存.</p>
-</blockquote>
-<ul>
-<li><a href="http://blog.csdn.net/xujinsmile/article/details/8464327" target="_blank" rel="external">Android开发学习笔记（十二） 获取系统可用内存</a>(16/01/01)<br>(关键字:Formatter,内存,MemoryInfo)</li>
-<li><blockquote>
-<h4 id="anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><a href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29" class="headerlink" title="anrdoid群英传(16/01/01)"></a>anrdoid群英传(16/01/01)</h4><p>使用 ActivityManager下的RunningAppProocessInfo可以获取到运行进程的信息,比如说以下信息:</p>
-<ul>
-<li>processName,进程名字</li>
-<li>pid,进程pid</li>
-<li>udi,进程uid<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用ActivityManager下的MemoryInfo去获取内存信息.</span></span><br><span class="line">ActivityManager.MemoryInfo memoryInfo = <span class="keyword">new</span> ActivityManager.MemoryInfo();</span><br><span class="line">am.getMemoryInfo(memoryInfo);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.availMem) + <span class="string">","</span>);</span><br><span class="line">tv.append(memoryInfo.lowMemory + <span class="string">","</span>);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.threshold) + <span class="string">","</span>);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.totalMem) + <span class="string">","</span>);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<p><strong>这样就基本可以知道某些手机卫士的工作原理了.</strong> 而RunningServiceInfo与上面类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.</p>
-<blockquote>
-<p>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-<p>(关键字:ActivityManager,Info,应用信息,系统内存)</p>
-<ul>
-<li><a href="http://blog.csdn.net/hudashi/article/details/7050897" target="_blank" rel="external">Android中如何查看内存(上)</a>(16/01/01)<br>(关键字:底层,内存,pss,dalvik,ActivityManager,MemoryInfo,adb,shell)</li>
-</ul>
-<h1 id="android__u4F18_u5316"><a href="#android__u4F18_u5316" class="headerlink" title="android 优化"></a>android 优化</h1><h3 id="android__u5185_u5B58_u6CC4_u9732"><a href="#android__u5185_u5B58_u6CC4_u9732" class="headerlink" title="android 内存泄露"></a>android 内存泄露</h3><h4 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h4><blockquote>
-<p>在MVP模式中,可以将Presenter中的mActivity设置成弱引用,这样如果在Presenter中要执行一些耗时操作而持有activity不能被回收导致内存泄露的情况发生.<br>那么,如果设置成弱引用不会出现随意被垃圾收集器处理的情况,而出现Presenter引用到activity对象的null情况吗?<br><strong> 答案: 在android 原生的某个地方已经将activity设置为强引用了,这也是activity的生命周期的实现原理,所以此时不需要担心这个问题,而需要注意当系统本应该清除activity时候能保证也能正常处理就行了. </strong></p>
-</blockquote>
-<p><a href="http://blog.csdn.net/cyq1028/article/details/19980369" target="_blank" rel="external">Android内存泄漏分析及调试</a>(16/01/03)<br>(关键字:内存泄露,GC,Handler,MAT,引用类型)<br><a href="http://blog.csdn.net/stevenhu_223/article/details/18360397" target="_blank" rel="external">Android中的软引用(SoftRefrerence)和弱引用(WeakReference)</a>(16/01/03)<br>(关键字:引用类型,内存泄露,缓存机制)<br><a href="http://my.oschina.net/ydsakyclguozi/blog/404389?fromerr=n0OZIKDE" target="_blank" rel="external">Java 7之基础 - 强引用、弱引用、软引用、虚引用</a>(16/01/03)<br>(关键字:引用类型,生命周期)<br><a href="http://blog.sina.cn/dpool/blog/s/blog_4e1e357d0101kig2.html" target="_blank" rel="external">为什么在 activity中 使用handler为甚要声明为静态的</a>(16/01/03)<br>(关键字:Handler,内存泄露,静态类型)</p>
+            android系统获取android设备中的可用内存
+ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可能上,totalMem–总内存,threshold–低内存的阈值,即区分是否低内在的临界值,lowMemory–是否处于低 内存.
 
-            
+
+Andro
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/19/daily/android每日阅读笔记汇总/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -357,7 +357,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -369,7 +369,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/01/02/daily/java每日阅读笔记汇总/" itemprop="url">
+                <a class="post-title-link" href="/2016/01/14/daily/java每日阅读笔记汇总/" itemprop="url">
                   java每日阅读笔记汇总
                 </a>
               
@@ -380,8 +380,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-02T23:57:54+08:00" content="2016-01-02">
-              2016-01-02
+            <time itemprop="dateCreated" datetime="2016-01-14T10:13:49+08:00" content="2016-01-14">
+              2016-01-14
             </time>
           </span>
 
@@ -406,8 +406,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/02/daily/java每日阅读笔记汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/02/daily/java每日阅读笔记汇总/" itemprop="commentsCount"></span>
+                <a href="/2016/01/14/daily/java每日阅读笔记汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/14/daily/java每日阅读笔记汇总/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -429,27 +429,18 @@
         
           <span itemprop="articleBody">
             
-              <h1 id="java_u57FA_u672C_u7C7B_u578B"><a href="#java_u57FA_u672C_u7C7B_u578B" class="headerlink" title="java基本类型"></a>java基本类型</h1><h2 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F" class="headerlink" title="四道Java基础题 你能对几道？"></a>四道Java基础题 你能对几道？</h2><h3 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h3><blockquote>
-<h3 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29" class="headerlink" title="四道Java基础题 你能对几道？(15/12/30)"></a><a href="http://blog.csdn.net/soul_code/article/details/50369947" target="_blank" rel="external">四道Java基础题 你能对几道？</a>(15/12/30)</h3><p>一、==符在Integer中的判断<br>二、==在String中的判断<br>三、final关键字在内部类中的作用<br>四、Integer与int的几个判断<br>(关键字: 装箱,拆箱,final,常量池)</p>
-</blockquote>
-<h3 id="u6269_u5C55_u9605_u8BFB"><a href="#u6269_u5C55_u9605_u8BFB" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
-<li><a href="http://www.cnblogs.com/dolphin0520/p/3780005.html" target="_blank" rel="external">深入剖析Java中的装箱和拆箱</a>(15/12/30)<br>(关键字:javap 反编译,装箱,拆箱, valueOf)</li>
-<li><a href="http://www.jb51.net/article/31934.htm" target="_blank" rel="external">java自动装箱拆箱深入剖析</a>(15/12/30)<br>(关键字:装箱,拆箱,javaSE5.0,享元模式,flyWeight)</li>
-<li><a href="http://www.cnblogs.com/iyangyuan/p/4631696.html" target="_blank" rel="external">触摸java常量池</a>(15/12/30)<br>(关键字:常量池,jvm虚拟机,编译时期,class文件构造,jvm参数,)</li>
-<li><a href="http://blog.csdn.net/olanlanxiari/article/details/8104505" target="_blank" rel="external">java常量池概念</a>(15/12/30)<br>(关键字:Integer源码,常量池)</li>
-</ul>
-<hr>
-<h1 id="java__u6CE8_u89E3"><a href="#java__u6CE8_u89E3" class="headerlink" title="java 注解"></a>java 注解</h1><h2 id="u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29"><a href="#u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29" class="headerlink" title="初次接触java 注解(Annotation)"></a>初次接触java 注解(Annotation)</h2><h3 id="u6269_u5C55_u9605_u8BFB-1"><a href="#u6269_u5C55_u9605_u8BFB-1" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
-<li><a href="http://blog.csdn.net/mddy2001/article/details/8291484" target="_blank" rel="external">@SuppressWarnings的使用、作用、用法</a>(15/12/31)<br>(关键字: 注解,SuppressWarnings,参数)</li>
-<li><a href="http://blog.csdn.net/cighao/article/details/50295751" target="_blank" rel="external">全面解析 Java 注解</a>(15/12/31)<br>(关键字:注解, )</li>
-</ul>
-<hr>
-<h1 id="java__u679A_u4E3E"><a href="#java__u679A_u4E3E" class="headerlink" title="java 枚举"></a>java 枚举</h1><h2 id="u521D_u6B21_u63A5_u89E6java__u679A_u4E3E_28Enum_29"><a href="#u521D_u6B21_u63A5_u89E6java__u679A_u4E3E_28Enum_29" class="headerlink" title="初次接触java 枚举(Enum)"></a>初次接触java 枚举(Enum)</h2><h3 id="u6269_u5C55_u9605_u8BFB-2"><a href="#u6269_u5C55_u9605_u8BFB-2" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
-<li><a href="http://blog.csdn.net/soul_code/article/details/50440183" target="_blank" rel="external">Java高级特性枚举</a>(16/01/02)<br><a href="https://github.com/Crainax/DemoCode/blob/master/Java/Demo/Demo_Enum/EnumTest.java" target="_blank" rel="external">点击查看demo代码</a><br>(关键字:枚举)</li>
-</ul>
+            java基本类型四道Java基础题 你能对几道？引言
+四道Java基础题 你能对几道？(15/12/30)一、==符在Integer中的判断二、==在String中的判断三、final关键字在内部类中的作用四、Integer与int的几个判断(关键字: 装箱,拆箱,final,常量池)
 
-            
+扩展阅读
+
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/01/14/daily/java每日阅读笔记汇总/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -549,22 +540,14 @@
         
           <span itemprop="articleBody">
             
-              <h2 id="JavaSE__u81EA_u5E26_u7684_u6CE8_u89E3"><a href="#JavaSE__u81EA_u5E26_u7684_u6CE8_u89E3" class="headerlink" title="JavaSE 自带的注解"></a>JavaSE 自带的注解</h2><p>我们可以自定义一个类,其中定义了一个方法,并用Deprecated注解去标注该方法已经过时,可以看到在main方法中调用该方法会报出警告.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationDemo1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//此时可以看出下面这句语句编译器是发出警告的</span></span><br><span class="line">        test1();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Deprecated</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>但是用到java.lang包下的@SuppressWarnings注解就可以消除该警告:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationDemo1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//此时警告消除</span></span><br><span class="line">        test1();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Deprecated</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="u81EA_u5B9A_u4E49_u6CE8_u89E3_u5B9E_u6218"><a href="#u81EA_u5B9A_u4E49_u6CE8_u89E3_u5B9E_u6218" class="headerlink" title="自定义注解实战"></a>自定义注解实战</h2><h3 id="1-_u83B7_u53D6_u6CE8_u89E3_u7684_u4FE1_u606F"><a href="#1-_u83B7_u53D6_u6CE8_u89E3_u7684_u4FE1_u606F" class="headerlink" title="1.获取注解的信息"></a>1.获取注解的信息</h3><p>我们可以使用Intellij  IDEA快速生成注解:<br><img src="http://7xpmqf.com1.z0.glb.clouddn.com/15-12-31/70085738.jpg" alt=""></p>
-<p>自定义注解类代码如下:<br><strong>Description.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Target</span>(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span><br><span class="line"><span class="annotation">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="annotation">@Inherited</span></span><br><span class="line"><span class="annotation">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="annotation">@interface</span> Description &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>引用注解类代码如下:<br><strong>MyAnn1.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Description</span>(<span class="string">"I am class annotation"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAnn1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里会报错: @Description is nuo applicable to field,因为在定义注解时候我们没有在@Target中去定义field目标.所以我们</span></span><br><span class="line">    <span class="annotation">@Description</span>(<span class="string">"I am field annotation"</span>)</span><br><span class="line">    <span class="keyword">private</span> String testField;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Description</span>(<span class="string">"I am method annotation"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>我们再写一个解析处理器去处理这些注解信息,其中main方法入口也在这里:</p>
-<h4 id="u5904_u7406_u81EA_u5B9A_u4E49_u6CE8_u89E3_u7684_u6B65_u9AA4_3A"><a href="#u5904_u7406_u81EA_u5B9A_u4E49_u6CE8_u89E3_u7684_u6B65_u9AA4_3A" class="headerlink" title="处理自定义注解的步骤:"></a>处理自定义注解的步骤:</h4><ol>
-<li>首先用java 提供的反射方法获取类加载器</li>
-<li>使用getAnnotation找到类下的注解,并获取其中已经定义的值.</li>
-<li>再用类加载器的方法获取所有method,遍历判断是否有注解并获取到注解,从而获取到值.<br><strong>ParseAnn.java</strong></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParseAnn</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//首先用java 提供的反射方法获取类加载器</span></span><br><span class="line">            Class&lt;?&gt; clazz = Class.forName(<span class="string">"diy.MyAnn1"</span>);<span class="comment">//这里需要注意加上包名不然会抛异常</span></span><br><span class="line">            <span class="keyword">if</span> (clazz.isAnnotationPresent(Description.class)) &#123;</span><br><span class="line">                <span class="comment">//获取到类注解</span></span><br><span class="line">                Description description = clazz.getAnnotation(Description.class);</span><br><span class="line">                System.out.println(description.value());<span class="comment">//value()方法就是定义在注解类中的一个方法.</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//获取方法下的类注解</span></span><br><span class="line">            Method[] methods = clazz.getMethods();</span><br><span class="line">            <span class="keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">                <span class="keyword">if</span> (method.isAnnotationPresent(Description.class)) &#123;</span><br><span class="line">                    Description description = method.getAnnotation(Description.class);</span><br><span class="line">                    System.out.println(description.value());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后运行,可以看到程序运行结果和预想的一样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I am class annotation&#10;I am method annotation</span><br></pre></td></tr></table></figure></p>
-<h3 id="u540E_u7EED_u66F4_u65B0_u4E2D_u2026"><a href="#u540E_u7EED_u66F4_u65B0_u4E2D_u2026" class="headerlink" title="后续更新中…."></a>后续更新中….</h3>
-            
+            JavaSE 自带的注解我们可以自定义一个类,其中定义了一个方法,并用Deprecated注解去标注该方法已经过时,可以看到在main方法中调用该方法会报出警告.1234567891011public class AnnotationDemo1 &#123;    public static voi
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/12/31/初次探索java 注解(Annotation)/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -631,10 +614,10 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            
+            <a href="/categories">
               <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分类</span>
-              
+              </a>
           </div>
 
           <div class="site-state-item site-state-tags">
@@ -656,6 +639,24 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Crainax/crainax.github.io" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhu-ze-ji-43" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
           
         </div>
 
@@ -681,7 +682,7 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
+  &copy;  2015 - 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
