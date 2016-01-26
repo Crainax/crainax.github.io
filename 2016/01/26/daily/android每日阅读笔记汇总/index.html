@@ -1,0 +1,854 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="梦醒依旧流年." type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="android FragmentFragment与Activity的交互
+API拾遗录之Fragment(其中有各种Menus的交互)(16/01/25)(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)
+
+android ViewonSizeChange
+android 系统回调onSizeChange, onMeasure, onLayout调用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android每日阅读笔记汇总">
+<meta property="og:url" content="http://crainax.github.io/2016/01/26/daily/android每日阅读笔记汇总/index.html">
+<meta property="og:site_name" content="梦醒依旧流年.">
+<meta property="og:description" content="android FragmentFragment与Activity的交互
+API拾遗录之Fragment(其中有各种Menus的交互)(16/01/25)(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)
+
+android ViewonSizeChange
+android 系统回调onSizeChange, onMeasure, onLayout调用">
+<meta property="og:updated_time" content="2016-01-26T10:17:56.461Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android每日阅读笔记汇总">
+<meta name="twitter:description" content="android FragmentFragment与Activity的交互
+API拾遗录之Fragment(其中有各种Menus的交互)(16/01/25)(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)
+
+android ViewonSizeChange
+android 系统回调onSizeChange, onMeasure, onLayout调用">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always',
+    motion: true
+  };
+</script>
+
+  <title> android每日阅读笔记汇总 | 梦醒依旧流年. </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dbff5548869ec83e45508084cdfc0f47";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">梦醒依旧流年.</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'iHq3__LJhtPGwFabKPks','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                android每日阅读笔记汇总
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-01-26T18:17:56+08:00" content="2016-01-26">
+              2016-01-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/daily/" itemprop="url" rel="index">
+                    <span itemprop="name">daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/01/26/daily/android每日阅读笔记汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/daily/android每日阅读笔记汇总/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="android_Fragment"><a href="#android_Fragment" class="headerlink" title="android Fragment"></a>android Fragment</h1><h2 id="Fragment_u4E0EActivity_u7684_u4EA4_u4E92"><a href="#Fragment_u4E0EActivity_u7684_u4EA4_u4E92" class="headerlink" title="Fragment与Activity的交互"></a>Fragment与Activity的交互</h2><ul>
+<li><a href="http://www.cnblogs.com/dyllove98/archive/2013/07/12/3186932.html" target="_blank" rel="external">API拾遗录之Fragment(其中有各种Menus的交互)</a>(16/01/25)<br>(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)</li>
+</ul>
+<h1 id="android_View"><a href="#android_View" class="headerlink" title="android View"></a>android View</h1><h2 id="onSizeChange"><a href="#onSizeChange" class="headerlink" title="onSizeChange"></a>onSizeChange</h2><ul>
+<li><a href="http://www.tuicool.com/articles/Vfy2I3" target="_blank" rel="external">android 系统回调onSizeChange, onMeasure, onLayout调用时机</a>(16/01/22)</li>
+<li><a href="http://blog.csdn.net/jason0539/article/details/9896743" target="_blank" rel="external">android之View的启动过程,有简单的onSizeChange调用时机分析</a>(16/01/22)</li>
+</ul>
+<h2 id="onDraw"><a href="#onDraw" class="headerlink" title="onDraw"></a>onDraw</h2><ul>
+<li><a href="http://blog.sina.com.cn/s/blog_5da93c8f0101d4mx.html" target="_blank" rel="external">Android中Paint字体属性的设置</a>(16/01/22)<br>(关键字:Paint,Style,FIll,STROKE)</li>
+<li><a href="http://kalogen.iteye.com/blog/1566111" target="_blank" rel="external">android中invalidate()的自动清屏含义以及屏幕刷新</a>(16/01/22)<br>(关键字:invalidate,onDraw)</li>
+<li><a href="http://blog.sina.com.cn/s/blog_783ede0301012im3.html" target="_blank" rel="external">Android Canvas drawArc方法介绍</a>(16/01/22)<br>(关键字:弧形,drawArc,canvas)</li>
+<li><a href="http://blog.csdn.net/qinjuning/article/details/7110211/" target="_blank" rel="external">Android中View绘制流程以及invalidate()等相关方法分析</a>(16/01/22)<br>(关键字:invalidate,绘制流程,onDraw)</li>
+</ul>
+<h2 id="u81EA_u5B9A_u4E49ViewGroup_u8FC7_u7A0B"><a href="#u81EA_u5B9A_u4E49ViewGroup_u8FC7_u7A0B" class="headerlink" title="自定义ViewGroup过程"></a>自定义ViewGroup过程</h2><h3 id="u4E0E_View__u5171_u6709_u4F46_u4E0D_u7C7B_u4F3C_u7684_u7ED8_u5236_u8FC7_u7A0B"><a href="#u4E0E_View__u5171_u6709_u4F46_u4E0D_u7C7B_u4F3C_u7684_u7ED8_u5236_u8FC7_u7A0B" class="headerlink" title="与 View 共有但不类似的绘制过程"></a>与 View 共有但不类似的绘制过程</h3><ul>
+<li><a href="/Android onMeasure、Measure、measureChild、measureChildren 一些简要说明">Android onMeasure、Measure、measureChild、measureChildren 一些简要说明</a>(16/01/24)<br>(关键字:measureChild,ViewGroup)</li>
+</ul>
+<h3 id="u5173_u4E8EViewGroup_u4E2D_u7684Scroller_u7B80_u4ECB"><a href="#u5173_u4E8EViewGroup_u4E2D_u7684Scroller_u7B80_u4ECB" class="headerlink" title="关于ViewGroup中的Scroller简介"></a>关于ViewGroup中的Scroller简介</h3><ul>
+<li><a href="http://ipjmc.iteye.com/blog/1615828" target="_blank" rel="external">Android Scroller简单用法</a>(16/01/24)<br>(关键字:Scroller,ViewGroup)</li>
+<li><a href="http://www.cnblogs.com/supersugar/archive/2012/08/13/2636691.html" target="_blank" rel="external">Android中Scroller类的分析</a>(16/01/24)<br>(关键字:Scroller,invalidate,computeScroll)</li>
+<li><a href="http://blog.csdn.net/c_weibin/article/details/7438323" target="_blank" rel="external">android 使用Scroller实现缓慢移动</a>(16/01/24)<br>(关键字:Scroller,computeScroll调用时机)</li>
+<li><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2013/0413/1162.html" target="_blank" rel="external">对于getScrollX() 的理解</a>(16/01/24)<br>(关键字:SCroller,getScrollX)</li>
+<li><strong><a href="http://www.cnblogs.com/wanqieddy/archive/2012/05/05/2484534.html" target="_blank" rel="external">Android中滑屏实现—-手把手教你如何实现触摸滑屏以及Scroller类详解</a></strong>(16/01/24)<br>(关键字:滑屏,Scroller)</li>
+</ul>
+<h3 id="u4F7F_u7528ViewDragHelper_u505A_u51FA_u66F4_u597D_u7684_u6ED1_u52A8_u5B9A_u5236_u6548_u679C"><a href="#u4F7F_u7528ViewDragHelper_u505A_u51FA_u66F4_u597D_u7684_u6ED1_u52A8_u5B9A_u5236_u6548_u679C" class="headerlink" title="使用ViewDragHelper做出更好的滑动定制效果"></a>使用ViewDragHelper做出更好的滑动定制效果</h3><ul>
+<li><strong><a href="http://blog.csdn.net/lmj623565791/article/details/46858663" target="_blank" rel="external">Android ViewDragHelper完全解析 自定义ViewGroup神器</a></strong>(16/01/25)<br>(关键字:ViewDragHelper,侧滑,边界捕获,非正常捕获,事件消耗,滑动事件周期)</li>
+</ul>
+<hr>
+<h1 id="android__u5217_u8868"><a href="#android__u5217_u8868" class="headerlink" title="android 列表"></a>android 列表</h1><h2 id="u5BF9_u4E8E_u9B45_u65CF_u4E2D_u7684ListView_u4F1A_u51FA_u73B0_u4E0B_u62C9_u60AC_u505C_u7684_u89E3_u51B3_u65B9_u6CD5"><a href="#u5BF9_u4E8E_u9B45_u65CF_u4E2D_u7684ListView_u4F1A_u51FA_u73B0_u4E0B_u62C9_u60AC_u505C_u7684_u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="对于魅族中的ListView会出现下拉悬停的解决方法"></a>对于魅族中的ListView会出现下拉悬停的解决方法</h2><ul>
+<li><a href="http://blog.csdn.net/guijiaoba/article/details/41725795" target="_blank" rel="external">魅族手机中屏蔽ListView下拉悬停方法</a>(16/01/24)<br>(关键字:ListView,魅族适配,下拉悬停)</li>
+</ul>
+<h2 id="u5217_u8868_u4E2D_u7684_u5176_u4ED6_u6709_u7528_u90E8_u5206"><a href="#u5217_u8868_u4E2D_u7684_u5176_u4ED6_u6709_u7528_u90E8_u5206" class="headerlink" title="列表中的其他有用部分"></a>列表中的其他有用部分</h2><ul>
+<li><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2013/0225/907.html" target="_blank" rel="external">ViewConfiguration.getScaledTouchSlop () 用法</a><br>(关键字:ViewConfiguration,ScaleTouchSlop,各种列表参数)</li>
+</ul>
+<hr>
+<h1 id="android__u56FE_u50CF_u5904_u7406"><a href="#android__u56FE_u50CF_u5904_u7406" class="headerlink" title="android 图像处理"></a>android 图像处理</h1><h2 id="u4F7F_u7528bitmap_xml_u505A_u6210_u6709_u91CD_u590D_u6392_u7248_u6548_u679C_u7684drawable_u8D44_u6E90_u6548_u679C"><a href="#u4F7F_u7528bitmap_xml_u505A_u6210_u6709_u91CD_u590D_u6392_u7248_u6548_u679C_u7684drawable_u8D44_u6E90_u6548_u679C" class="headerlink" title="使用bitmap xml做成有重复排版效果的drawable资源效果"></a>使用bitmap xml做成有重复排版效果的drawable资源效果</h2><ul>
+<li><a href="http://www.2cto.com/kf/201304/205818.html" target="_blank" rel="external">XML Bitmap</a>(16/01/26)<br>(关键字:Bitmap,xml,tileMode)</li>
+</ul>
+<h2 id="u4F7F_u7528Shape_u505A_u51FA_u5404_u79CD_u6709_u8DA3_u7684_u6548_u679C"><a href="#u4F7F_u7528Shape_u505A_u51FA_u5404_u79CD_u6709_u8DA3_u7684_u6548_u679C" class="headerlink" title="使用Shape做出各种有趣的效果"></a>使用Shape做出各种有趣的效果</h2><h3 id="Shape_u4E2D_u7684Gradient_u4E0B_u7684Angle_u5C5E_u6027_u7684_u4F5C_u7528_u8BE6_u89E3"><a href="#Shape_u4E2D_u7684Gradient_u4E0B_u7684Angle_u5C5E_u6027_u7684_u4F5C_u7528_u8BE6_u89E3" class="headerlink" title="Shape中的Gradient下的Angle属性的作用详解"></a>Shape中的Gradient下的Angle属性的作用详解</h3><ul>
+<li><a href="http://blog.csdn.net/loongggdroid/article/details/9464173" target="_blank" rel="external">Android (shape,gradient)使用总结</a>(16/01/26)<br>(关键字:Shape,Gradient,Angle)</li>
+</ul>
+<h2 id="u4F7F_u7528Shader_u5BF9_u753B_u7B14_u6216_u8005_u56FE_u50CF_u8FDB_u884C_u64CD_u4F5C_u5904_u7406"><a href="#u4F7F_u7528Shader_u5BF9_u753B_u7B14_u6216_u8005_u56FE_u50CF_u8FDB_u884C_u64CD_u4F5C_u5904_u7406" class="headerlink" title="使用Shader对画笔或者图像进行操作处理"></a>使用Shader对画笔或者图像进行操作处理</h2><ul>
+<li><a href="http://www.php100.com/html/it/qianduan/2014/1226/8188.html" target="_blank" rel="external">Android BitmapShader实现圆形和圆角图片</a>(16/01/23)<br>(关键字:Shader,圆角)</li>
+<li><a href="http://blog.csdn.net/sjf0115/article/details/7267220" target="_blank" rel="external">Android学习笔记进阶15之Shader渲染</a>(16/01/23)<br>(关键字:Shader,图片渲染)</li>
+</ul>
+<hr>
+<h1 id="android_u7CFB_u7EDF"><a href="#android_u7CFB_u7EDF" class="headerlink" title="android系统"></a>android系统</h1><h2 id="u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><a href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58" class="headerlink" title="获取android设备中的可用内存"></a>获取android设备中的可用内存</h2><blockquote>
+<p>ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可能上,totalMem–总内存,threshold–低内存的阈值,即区分是否低内在的临界值,lowMemory–是否处于低 内存.</p>
+</blockquote>
+<ul>
+<li><a href="http://blog.csdn.net/xujinsmile/article/details/8464327" target="_blank" rel="external">Android开发学习笔记（十二） 获取系统可用内存</a>(16/01/01)<br>(关键字:Formatter,内存,MemoryInfo)</li>
+<li><blockquote>
+<h4 id="anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><a href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29" class="headerlink" title="anrdoid群英传(16/01/01)"></a>anrdoid群英传(16/01/01)</h4><p>使用 ActivityManager下的RunningAppProocessInfo可以获取到运行进程的信息,比如说以下信息:</p>
+<ul>
+<li>processName,进程名字</li>
+<li>pid,进程pid</li>
+<li>udi,进程uid<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用ActivityManager下的MemoryInfo去获取内存信息.</span></span><br><span class="line">ActivityManager.MemoryInfo memoryInfo = <span class="keyword">new</span> ActivityManager.MemoryInfo();</span><br><span class="line">am.getMemoryInfo(memoryInfo);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.availMem) + <span class="string">","</span>);</span><br><span class="line">tv.append(memoryInfo.lowMemory + <span class="string">","</span>);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.threshold) + <span class="string">","</span>);</span><br><span class="line">tv.append(Formatter.formatFileSize(<span class="keyword">this</span>, memoryInfo.totalMem) + <span class="string">","</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<p>这样就基本可以知道某些手机卫士的工作原理了.</p>
+<blockquote>
+<p>而RunningServiceInfo与上面类似可以获取所有当前运行的服务,这项功能可以用来判断服务是否存在以完成某些特定的功能,比如初始化UI,或者也类似于360的优化内存功能.<br>Debug.MemoryInfo 类中能通过pid去检索所占用的内存空间.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">List&lt;ActivityManager.RunningAppProcessInfo&gt; infos = am.getRunningAppProcesses();</span><br><span class="line"><span class="keyword">for</span> (ActivityManager.RunningAppProcessInfo info : infos) &#123;</span><br><span class="line">    <span class="keyword">int</span> pid = info.pid;</span><br><span class="line">    <span class="keyword">int</span> uid = info.uid;</span><br><span class="line">    String processName = info.processName;</span><br><span class="line">    Debug.MemoryInfo memoryInfo = am.getProcessMemoryInfo(<span class="keyword">new</span> <span class="keyword">int</span>[]&#123;pid&#125;)[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">int</span> totalPss = memoryInfo.getTotalPss();</span><br><span class="line">    <span class="keyword">int</span> dalvikPss = memoryInfo.dalvikPss;</span><br><span class="line">    tv.append(pid + <span class="string">","</span>);</span><br><span class="line">    tv.append(uid + <span class="string">","</span>);</span><br><span class="line">    tv.append(processName + <span class="string">","</span>);</span><br><span class="line">    tv.append(totalPss + <span class="string">","</span>);</span><br><span class="line">    tv.append(dalvikPss + <span class="string">"."</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<p>(关键字:ActivityManager,Info,应用信息,系统内存)</p>
+<ul>
+<li><a href="http://blog.csdn.net/hudashi/article/details/7050897" target="_blank" rel="external">Android中如何查看内存(上)</a>(16/01/01)<br>(关键字:底层,内存,pss,dalvik,ActivityManager,MemoryInfo,adb,shell)</li>
+</ul>
+<h2 id="u4F7F_u7528google_u63D0_u4F9B_u7684_u5DE5_u5177_u8FDB_u884C_u53CD_u7F16_u8BD1"><a href="#u4F7F_u7528google_u63D0_u4F9B_u7684_u5DE5_u5177_u8FDB_u884C_u53CD_u7F16_u8BD1" class="headerlink" title="使用google提供的工具进行反编译"></a>使用google提供的工具进行反编译</h2><blockquote>
+<p>今天花了很多时间在尝试反编译,都出现很多问题的情况下,收集了很多相关的网站,以方便遇到同样问题的人能更好的解决而不必折腾.</p>
+</blockquote>
+<ul>
+<li><a href="http://blog.csdn.net/vipzjyno1/article/details/21039349/" target="_blank" rel="external">Android APK反编译就这么简单 详解（附图）</a>(16/01/19)<br>(关键字:反编译,重打包,apktool,dex2jar,jd-gui)</li>
+<li><a href="http://blog.csdn.net/aeolus1019/article/details/8119786" target="_blank" rel="external">brut.androlib.err.UndefinedResObject（完美解决）apktool反编译问题</a>(16/01/19)<br>(关键字:反编译,UndefinedResObject异常,apktool)</li>
+<li><a href="http://ibotpeaches.github.io/Apktool/" target="_blank" rel="external">Apktool相关权威网站,有详细指导过程及常见问题</a>(16/01/19)<br>(关键字:apktool)</li>
+<li><a href="http://blog.csdn.net/sam_zhang1984/article/details/8839175" target="_blank" rel="external">ApkTool反编译和重新打包</a>(16/01/21)<br>(关键字:apktool,重打包,签名,smali简单语法)</li>
+</ul>
+<h2 id="u4F7F_u7528Android_Studio_u8BBE_u7F6E_u7B7E_u540D_3B_u591A_u6E20_u9053_u6253_u5305"><a href="#u4F7F_u7528Android_Studio_u8BBE_u7F6E_u7B7E_u540D_3B_u591A_u6E20_u9053_u6253_u5305" class="headerlink" title="使用Android Studio设置签名;多渠道打包"></a>使用Android Studio设置签名;多渠道打包</h2><blockquote>
+<p><em>引言</em><br>在使用apktool 进行反编译打包的,然后在手机进行安装会出现解析错误,不能安装的错误.上网看了一下,需要设置相应的签名才能安装<br><strong>(所以使用别人的资源重打包的时候如果 想覆盖别人的应用 ,就需要用到别人的签名,极大程度的保护了android的应用),但是如果仅仅用在汉化的用途,就可以用第二套应用.解决了这个疑问.</strong></p>
+</blockquote>
+<ul>
+<li><a href="http://blog.csdn.net/yy1300326388/article/details/48344411" target="_blank" rel="external">［Android Studio 权威教程］打包、生成jks密钥、签名Apk、多渠道打包</a>(16/01/21)<br>(关键字:打包,sign,签名,密钥,多渠道)</li>
+</ul>
+<hr>
+<h1 id="android__u4F18_u5316"><a href="#android__u4F18_u5316" class="headerlink" title="android 优化"></a>android 优化</h1><h2 id="android__u81EA_u5B9A_u4E49View__u4F18_u5316"><a href="#android__u81EA_u5B9A_u4E49View__u4F18_u5316" class="headerlink" title="android 自定义View 优化"></a>android 自定义View 优化</h2><ul>
+<li><a href="http://www.bubuko.com/infodetail-185926.html" target="_blank" rel="external">Android中关于在onDraw或者onMeasure中创建对象提示Avoid object allocations during draw/layout operations (preallocate and reuse instead) 问题</a>(16/01/22)<br>(关键字:onDraw,优化,对象创建)</li>
+</ul>
+<h2 id="android__u5185_u5B58_u6CC4_u9732"><a href="#android__u5185_u5B58_u6CC4_u9732" class="headerlink" title="android 内存泄露"></a>android 内存泄露</h2><h3 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<p>在MVP模式中,可以将Presenter中的mActivity设置成弱引用,这样如果在Presenter中要执行一些耗时操作而持有activity不能被回收导致内存泄露的情况发生.<br>那么,如果设置成弱引用不会出现随意被垃圾收集器处理的情况,而出现Presenter引用到activity对象的null情况吗?<br><strong> 答案: 在android 原生的某个地方已经将activity设置为强引用了,这也是activity的生命周期的实现原理,所以此时不需要担心这个问题,而需要注意当系统本应该清除activity时候能保证也能正常处理就行了. </strong></p>
+</blockquote>
+<ul>
+<li><a href="http://blog.csdn.net/cyq1028/article/details/19980369" target="_blank" rel="external">Android内存泄漏分析及调试</a>(16/01/03)<br>(关键字:内存泄露,GC,Handler,MAT,引用类型)</li>
+<li><a href="http://blog.csdn.net/stevenhu_223/article/details/18360397" target="_blank" rel="external">Android中的软引用(SoftRefrerence)和弱引用(WeakReference)</a>(16/01/03)<br>(关键字:引用类型,内存泄露,缓存机制)</li>
+<li><a href="http://my.oschina.net/ydsakyclguozi/blog/404389?fromerr=n0OZIKDE" target="_blank" rel="external">Java 7之基础 - 强引用、弱引用、软引用、虚引用</a>(16/01/03)<br>(关键字:引用类型,生命周期)</li>
+<li><a href="http://blog.sina.cn/dpool/blog/s/blog_4e1e357d0101kig2.html" target="_blank" rel="external">为什么在 activity中 使用handler为甚要声明为静态的</a>(16/01/03)<br>(关键字:Handler,内存泄露,静态类型)</li>
+</ul>
+<h1 id="Android__u5E93"><a href="#Android__u5E93" class="headerlink" title="Android 库"></a>Android 库</h1><h2 id="SlidingPaneLayout"><a href="#SlidingPaneLayout" class="headerlink" title="SlidingPaneLayout"></a>SlidingPaneLayout</h2><blockquote>
+<p>这个库可以用做出像QQ一样的侧滑效果,也有点类似于DrawerLayout.</p>
+</blockquote>
+<ul>
+<li><a href="http://my.oschina.net/summerpxy/blog/211835" target="_blank" rel="external">SlidingPaneLayout的基本使用</a>(16/01/25)<br>(关键字:SlidingPanelLayout)</li>
+<li><a href="http://blog.csdn.net/xyz_lmn/article/details/12618149" target="_blank" rel="external">Android UI开发第三十四篇——SlidingPaneLayout</a>(16/01/25)<br>(关键字:SlidingPanelLayout)</li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/01/24/daily/java每日阅读笔记汇总/" rel="next" title="java每日阅读笔记汇总">
+                <i class="fa fa-chevron-left"></i> java每日阅读笔记汇总
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/26/Java/初次探索java 注解(Annotation)/" rel="prev" title="初次探索java注解(Annotation)">
+                初次探索java注解(Annotation) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/01/26/daily/android每日阅读笔记汇总/"
+           data-title="android每日阅读笔记汇总" data-url="http://crainax.github.io/2016/01/26/daily/android每日阅读笔记汇总/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xpmqf.com1.z0.glb.clouddn.com/16-1-13/75773997.jpg" alt="Crainax" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Crainax</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">Crainax's Blog.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Crainax/crainax.github.io" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhu-ze-ji-43" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android_Fragment"><span class="nav-number">1.</span> <span class="nav-text">android Fragment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment_u4E0EActivity_u7684_u4EA4_u4E92"><span class="nav-number">1.1.</span> <span class="nav-text">Fragment与Activity的交互</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android_View"><span class="nav-number">2.</span> <span class="nav-text">android View</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#onSizeChange"><span class="nav-number">2.1.</span> <span class="nav-text">onSizeChange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onDraw"><span class="nav-number">2.2.</span> <span class="nav-text">onDraw</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u81EA_u5B9A_u4E49ViewGroup_u8FC7_u7A0B"><span class="nav-number">2.3.</span> <span class="nav-text">自定义ViewGroup过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E0E_View__u5171_u6709_u4F46_u4E0D_u7C7B_u4F3C_u7684_u7ED8_u5236_u8FC7_u7A0B"><span class="nav-number">2.3.1.</span> <span class="nav-text">与 View 共有但不类似的绘制过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5173_u4E8EViewGroup_u4E2D_u7684Scroller_u7B80_u4ECB"><span class="nav-number">2.3.2.</span> <span class="nav-text">关于ViewGroup中的Scroller简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528ViewDragHelper_u505A_u51FA_u66F4_u597D_u7684_u6ED1_u52A8_u5B9A_u5236_u6548_u679C"><span class="nav-number">2.3.3.</span> <span class="nav-text">使用ViewDragHelper做出更好的滑动定制效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u5217_u8868"><span class="nav-number">3.</span> <span class="nav-text">android 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BF9_u4E8E_u9B45_u65CF_u4E2D_u7684ListView_u4F1A_u51FA_u73B0_u4E0B_u62C9_u60AC_u505C_u7684_u89E3_u51B3_u65B9_u6CD5"><span class="nav-number">3.1.</span> <span class="nav-text">对于魅族中的ListView会出现下拉悬停的解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5217_u8868_u4E2D_u7684_u5176_u4ED6_u6709_u7528_u90E8_u5206"><span class="nav-number">3.2.</span> <span class="nav-text">列表中的其他有用部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u56FE_u50CF_u5904_u7406"><span class="nav-number">4.</span> <span class="nav-text">android 图像处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528bitmap_xml_u505A_u6210_u6709_u91CD_u590D_u6392_u7248_u6548_u679C_u7684drawable_u8D44_u6E90_u6548_u679C"><span class="nav-number">4.1.</span> <span class="nav-text">使用bitmap xml做成有重复排版效果的drawable资源效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Shape_u505A_u51FA_u5404_u79CD_u6709_u8DA3_u7684_u6548_u679C"><span class="nav-number">4.2.</span> <span class="nav-text">使用Shape做出各种有趣的效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shape_u4E2D_u7684Gradient_u4E0B_u7684Angle_u5C5E_u6027_u7684_u4F5C_u7528_u8BE6_u89E3"><span class="nav-number">4.2.1.</span> <span class="nav-text">Shape中的Gradient下的Angle属性的作用详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Shader_u5BF9_u753B_u7B14_u6216_u8005_u56FE_u50CF_u8FDB_u884C_u64CD_u4F5C_u5904_u7406"><span class="nav-number">4.3.</span> <span class="nav-text">使用Shader对画笔或者图像进行操作处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android_u7CFB_u7EDF"><span class="nav-number">5.</span> <span class="nav-text">android系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><span class="nav-number">5.1.</span> <span class="nav-text">获取android设备中的可用内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><span class="nav-number">5.1.0.1.</span> <span class="nav-text">anrdoid群英传(16/01/01)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528google_u63D0_u4F9B_u7684_u5DE5_u5177_u8FDB_u884C_u53CD_u7F16_u8BD1"><span class="nav-number">5.2.</span> <span class="nav-text">使用google提供的工具进行反编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Android_Studio_u8BBE_u7F6E_u7B7E_u540D_3B_u591A_u6E20_u9053_u6253_u5305"><span class="nav-number">5.3.</span> <span class="nav-text">使用Android Studio设置签名;多渠道打包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u4F18_u5316"><span class="nav-number">6.</span> <span class="nav-text">android 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#android__u81EA_u5B9A_u4E49View__u4F18_u5316"><span class="nav-number">6.1.</span> <span class="nav-text">android 自定义View 优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android__u5185_u5B58_u6CC4_u9732"><span class="nav-number">6.2.</span> <span class="nav-text">android 内存泄露</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F15_u8A00"><span class="nav-number">6.2.1.</span> <span class="nav-text">引言</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android__u5E93"><span class="nav-number">7.</span> <span class="nav-text">Android 库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SlidingPaneLayout"><span class="nav-number">7.1.</span> <span class="nav-text">SlidingPaneLayout</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Crainax</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"crainax"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
