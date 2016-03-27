@@ -53,28 +53,28 @@
 
 
 
-<meta name="description" content="android FragmentFragment与Activity的交互
-API拾遗录之Fragment(其中有各种Menus的交互)(16/01/25)(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)
+<meta name="description" content="android 四大组件之一 ActivityActivity的任务栈分析resultCode为RESULT_CANCEL的原因
+如果Activity的启动模式为SingleInstance或者singleTask的话.调用onActivityForResult会立即返回RESULT_CANCEL的请求码.
 
-android ViewonSizeChange
-android 系统回调onSizeChange, onMeasure, onLayout调用">
+
+ [Android]startActivityForResult启动singleTas">
 <meta property="og:type" content="article">
 <meta property="og:title" content="android每日阅读笔记汇总">
-<meta property="og:url" content="http://crainax.github.io/2016/01/26/daily/android每日阅读笔记汇总/index.html">
+<meta property="og:url" content="http://crainax.github.io/2016/03/27/daily/android每日阅读笔记汇总/index.html">
 <meta property="og:site_name" content="梦醒依旧流年.">
-<meta property="og:description" content="android FragmentFragment与Activity的交互
-API拾遗录之Fragment(其中有各种Menus的交互)(16/01/25)(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)
+<meta property="og:description" content="android 四大组件之一 ActivityActivity的任务栈分析resultCode为RESULT_CANCEL的原因
+如果Activity的启动模式为SingleInstance或者singleTask的话.调用onActivityForResult会立即返回RESULT_CANCEL的请求码.
 
-android ViewonSizeChange
-android 系统回调onSizeChange, onMeasure, onLayout调用">
-<meta property="og:updated_time" content="2016-01-26T10:17:56.461Z">
+
+ [Android]startActivityForResult启动singleTas">
+<meta property="og:updated_time" content="2016-03-27T12:57:44.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android每日阅读笔记汇总">
-<meta name="twitter:description" content="android FragmentFragment与Activity的交互
-API拾遗录之Fragment(其中有各种Menus的交互)(16/01/25)(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)
+<meta name="twitter:description" content="android 四大组件之一 ActivityActivity的任务栈分析resultCode为RESULT_CANCEL的原因
+如果Activity的启动模式为SingleInstance或者singleTask的话.调用onActivityForResult会立即返回RESULT_CANCEL的请求码.
 
-android ViewonSizeChange
-android 系统回调onSizeChange, onMeasure, onLayout调用">
+
+ [Android]startActivityForResult启动singleTas">
 
 
 
@@ -271,8 +271,8 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-26T18:17:56+08:00" content="2016-01-26">
-              2016-01-26
+            <time itemprop="dateCreated" datetime="2016-03-27T20:57:44+08:00" content="2016-03-27">
+              2016-03-27
             </time>
           </span>
 
@@ -297,8 +297,8 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/26/daily/android每日阅读笔记汇总/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/daily/android每日阅读笔记汇总/" itemprop="commentsCount"></span>
+                <a href="/2016/03/27/daily/android每日阅读笔记汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/27/daily/android每日阅读笔记汇总/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -317,9 +317,37 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
       
 
       
-        <span itemprop="articleBody"><h1 id="android_Fragment"><a href="#android_Fragment" class="headerlink" title="android Fragment"></a>android Fragment</h1><h2 id="Fragment_u4E0EActivity_u7684_u4EA4_u4E92"><a href="#Fragment_u4E0EActivity_u7684_u4EA4_u4E92" class="headerlink" title="Fragment与Activity的交互"></a>Fragment与Activity的交互</h2><ul>
+        <span itemprop="articleBody"><h1 id="android__u56DB_u5927_u7EC4_u4EF6_u4E4B_u4E00_Activity"><a href="#android__u56DB_u5927_u7EC4_u4EF6_u4E4B_u4E00_Activity" class="headerlink" title="android 四大组件之一 Activity"></a>android 四大组件之一 Activity</h1><h2 id="Activity_u7684_u4EFB_u52A1_u6808_u5206_u6790"><a href="#Activity_u7684_u4EFB_u52A1_u6808_u5206_u6790" class="headerlink" title="Activity的任务栈分析"></a>Activity的任务栈分析</h2><h3 id="resultCode_u4E3ARESULT_CANCEL_u7684_u539F_u56E0"><a href="#resultCode_u4E3ARESULT_CANCEL_u7684_u539F_u56E0" class="headerlink" title="resultCode为RESULT_CANCEL的原因"></a>resultCode为RESULT_CANCEL的原因</h3><blockquote>
+<p>如果Activity的启动模式为SingleInstance或者singleTask的话.调用onActivityForResult会立即返回RESULT_CANCEL的请求码.</p>
+</blockquote>
+<ul>
+<li><a href="http://blog.csdn.net/sodino/article/details/22101881" target="_blank" rel="external"> [Android]startActivityForResult启动singleTask的Activity，则onActivitResult()立即回调且resultCode为RESULT_CANCEL</a>(16/01/27)<br>(关键字:RESULT_CANCEL,Activity,resultCode,SingleTask,SingleInstance)</li>
+</ul>
+<h3 id="u542F_u7528_u4EFB_u52A1_u6808"><a href="#u542F_u7528_u4EFB_u52A1_u6808" class="headerlink" title="启用任务栈"></a>启用任务栈</h3><ul>
+<li><a href="http://blog.csdn.net/vipzjyno1/article/details/25463457" target="_blank" rel="external">[置顶] Activity启动模式 及 Intent Flags 与 栈 的关联分析</a>(16/01/27)<br>(关键字:taskAffinity,FLAG_ACTIVITY_NEW_TASK ,FLAG_ACTIVITY_NO_HISTORY,任务栈)</li>
+<li><blockquote>
+<p>Android 群英传</p>
+<ol>
+<li>clearTaskOnLaunch 在Manifest中的属性:<br>每次在返回该Acvitity时,都将该Activity之上的所有Activity都清除.通过这个属性,可以让这个Task每次在初始化的时候,都只有这一个Activity.</li>
+<li>finishOnTaskLaunch 与clearTaskOnLaunch类似,只不过clearTaskOnLaunch作用在别人身上,而finishOnTaskLaunch作用在自己身上.通过这个属性,当离开这个Activity所处的Task,那么用户再返回时,该Activity就会被finish掉.</li>
+<li>alwaysRetainTaskState<br>这个属性给了Task一道”免死金牌”,如果将Activity这个属性设置为True,那么该Activity所在的Task将不接受任何清理命令</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h2 id="Activity_u7684_u81EA_u52A8_u9500_u6BC1_u4FDD_u5B58_u6570_u636E_u673A_u5236_u2013onSaveInstanceState"><a href="#Activity_u7684_u81EA_u52A8_u9500_u6BC1_u4FDD_u5B58_u6570_u636E_u673A_u5236_u2013onSaveInstanceState" class="headerlink" title="Activity的自动销毁保存数据机制–onSaveInstanceState"></a>Activity的自动销毁保存数据机制–onSaveInstanceState</h2><h3 id="u5BF9_u4E8E_u8FD9_u4E24_u4E2A_u65B9_u6CD5_u7684_u89E6_u53D1_u65F6_u673A_3A"><a href="#u5BF9_u4E8E_u8FD9_u4E24_u4E2A_u65B9_u6CD5_u7684_u89E6_u53D1_u65F6_u673A_3A" class="headerlink" title="对于这两个方法的触发时机:"></a>对于这两个方法的触发时机:</h3><ul>
+<li><a href="http://android.blog.51cto.com/268543/634646/" target="_blank" rel="external">onSaveInstanceState和onRestoreInstanceState触发的时机</a>(16/01/28)<br>(关键字:onSaveInstanceState、onRestoreInstanceState、触发时机)</li>
+<li><a href="http://www.cnblogs.com/SharkBin/p/3539658.html" target="_blank" rel="external">onSaveInstanceState(Bundle outState)的调用时机</a>(16/01/28)<br>(关键字:onSaveInstanceState、没有PersistableBundle)<br><strong>注意:是没有PersistableBundle参数的onSaveInstanceState.</strong></li>
+</ul>
+<h3 id="u5BF9_u4E8E_Android_L_u4E2D_u65B0_u52A0_u5165_u7684_u5E26_u6709PersistableBundle_u53C2_u6570_u7684_u4E09_u4E2A_u65B9_u6CD5_u7684_u4ECB_u7ECD_3A"><a href="#u5BF9_u4E8E_Android_L_u4E2D_u65B0_u52A0_u5165_u7684_u5E26_u6709PersistableBundle_u53C2_u6570_u7684_u4E09_u4E2A_u65B9_u6CD5_u7684_u4ECB_u7ECD_3A" class="headerlink" title="对于 Android L中新加入的带有PersistableBundle参数的三个方法的介绍:"></a>对于 Android L中新加入的带有PersistableBundle参数的三个方法的介绍:</h3><ul>
+<li><a href="http://blog.csdn.net/lincyang/article/details/45287599" target="_blank" rel="external">Android实战技巧之二十六：persistableMode与Activity的持久化
+</a>(16/01/28)<br>(关键字:PersistableBundle,持久化,activity)</li>
+</ul>
+<hr>
+<h1 id="android_Fragment"><a href="#android_Fragment" class="headerlink" title="android Fragment"></a>android Fragment</h1><h2 id="Fragment_u4E0EActivity_u7684_u4EA4_u4E92"><a href="#Fragment_u4E0EActivity_u7684_u4EA4_u4E92" class="headerlink" title="Fragment与Activity的交互"></a>Fragment与Activity的交互</h2><ul>
 <li><a href="http://www.cnblogs.com/dyllove98/archive/2013/07/12/3186932.html" target="_blank" rel="external">API拾遗录之Fragment(其中有各种Menus的交互)</a>(16/01/25)<br>(关键字:OptionsMenu交互,setHasOptionsMenu,Fragment,回调)</li>
 </ul>
+<hr>
 <h1 id="android_View"><a href="#android_View" class="headerlink" title="android View"></a>android View</h1><h2 id="onSizeChange"><a href="#onSizeChange" class="headerlink" title="onSizeChange"></a>onSizeChange</h2><ul>
 <li><a href="http://www.tuicool.com/articles/Vfy2I3" target="_blank" rel="external">android 系统回调onSizeChange, onMeasure, onLayout调用时机</a>(16/01/22)</li>
 <li><a href="http://blog.csdn.net/jason0539/article/details/9896743" target="_blank" rel="external">android之View的启动过程,有简单的onSizeChange调用时机分析</a>(16/01/22)</li>
@@ -343,6 +371,9 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
 <h3 id="u4F7F_u7528ViewDragHelper_u505A_u51FA_u66F4_u597D_u7684_u6ED1_u52A8_u5B9A_u5236_u6548_u679C"><a href="#u4F7F_u7528ViewDragHelper_u505A_u51FA_u66F4_u597D_u7684_u6ED1_u52A8_u5B9A_u5236_u6548_u679C" class="headerlink" title="使用ViewDragHelper做出更好的滑动定制效果"></a>使用ViewDragHelper做出更好的滑动定制效果</h3><ul>
 <li><strong><a href="http://blog.csdn.net/lmj623565791/article/details/46858663" target="_blank" rel="external">Android ViewDragHelper完全解析 自定义ViewGroup神器</a></strong>(16/01/25)<br>(关键字:ViewDragHelper,侧滑,边界捕获,非正常捕获,事件消耗,滑动事件周期)</li>
 </ul>
+<h3 id="u4E00_u4E9B_u5B9E_u7528_u6280_u5DE7"><a href="#u4E00_u4E9B_u5B9E_u7528_u6280_u5DE7" class="headerlink" title="一些实用技巧"></a>一些实用技巧</h3><ul>
+<li><a href="http://doc.okbase.net/zpj779878443/archive/121670.html" target="_blank" rel="external">New UI-妙用view的keepScreenOn属性保持屏幕常亮</a>(16/01/27)<br>(关键字:常亮)</li>
+</ul>
 <hr>
 <h1 id="android__u5217_u8868"><a href="#android__u5217_u8868" class="headerlink" title="android 列表"></a>android 列表</h1><h2 id="u5BF9_u4E8E_u9B45_u65CF_u4E2D_u7684ListView_u4F1A_u51FA_u73B0_u4E0B_u62C9_u60AC_u505C_u7684_u89E3_u51B3_u65B9_u6CD5"><a href="#u5BF9_u4E8E_u9B45_u65CF_u4E2D_u7684ListView_u4F1A_u51FA_u73B0_u4E0B_u62C9_u60AC_u505C_u7684_u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="对于魅族中的ListView会出现下拉悬停的解决方法"></a>对于魅族中的ListView会出现下拉悬停的解决方法</h2><ul>
 <li><a href="http://blog.csdn.net/guijiaoba/article/details/41725795" target="_blank" rel="external">魅族手机中屏蔽ListView下拉悬停方法</a>(16/01/24)<br>(关键字:ListView,魅族适配,下拉悬停)</li>
@@ -361,6 +392,7 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
 <li><a href="http://www.php100.com/html/it/qianduan/2014/1226/8188.html" target="_blank" rel="external">Android BitmapShader实现圆形和圆角图片</a>(16/01/23)<br>(关键字:Shader,圆角)</li>
 <li><a href="http://blog.csdn.net/sjf0115/article/details/7267220" target="_blank" rel="external">Android学习笔记进阶15之Shader渲染</a>(16/01/23)<br>(关键字:Shader,图片渲染)</li>
 </ul>
+<h2 id="u4F7F_u7528Xfermode_u5B9E_u73B0_u56FE_u7247_u6DF7_u5408_u6548_u679C"><a href="#u4F7F_u7528Xfermode_u5B9E_u73B0_u56FE_u7247_u6DF7_u5408_u6548_u679C" class="headerlink" title="使用Xfermode实现图片混合效果"></a>使用Xfermode实现图片混合效果</h2><p><a href="http://blog.csdn.net/lmj623565791/article/details/24555655" target="_blank" rel="external"></a>(16/01/27)<br>(关键字:Xfermode,圆角图片,混合图层,混合通道))</p>
 <hr>
 <h1 id="android_u7CFB_u7EDF"><a href="#android_u7CFB_u7EDF" class="headerlink" title="android系统"></a>android系统</h1><h2 id="u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><a href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58" class="headerlink" title="获取android设备中的可用内存"></a>获取android设备中的可用内存</h2><blockquote>
 <p>ActivityManager.MemoryInfo中有几个非常重要的字段,availMem–系统可能上,totalMem–总内存,threshold–低内存的阈值,即区分是否低内在的临界值,lowMemory–是否处于低 内存.</p>
@@ -403,8 +435,24 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
 <li><a href="http://blog.csdn.net/yy1300326388/article/details/48344411" target="_blank" rel="external">［Android Studio 权威教程］打包、生成jks密钥、签名Apk、多渠道打包</a>(16/01/21)<br>(关键字:打包,sign,签名,密钥,多渠道)</li>
 </ul>
 <hr>
+<h1 id="android__u8BBE_u8BA1"><a href="#android__u8BBE_u8BA1" class="headerlink" title="android 设计"></a>android 设计</h1><h2 id="Material_Design"><a href="#Material_Design" class="headerlink" title="Material Design"></a>Material Design</h2><h3 id="Toolbar"><a href="#Toolbar" class="headerlink" title="Toolbar"></a>Toolbar</h3><ul>
+<li><a href="http://www.jianshu.com/p/79604c3ddcae" target="_blank" rel="external">Android开发：最详细的 Toolbar 开发实践总结</a>(16/02/23)<br>(关键字:Toolbar,细节)</li>
+</ul>
+<h3 id="u900F_u660E_u72B6_u6001_u680F_u5B9E_u6218"><a href="#u900F_u660E_u72B6_u6001_u680F_u5B9E_u6218" class="headerlink" title="透明状态栏实战"></a>透明状态栏实战</h3><ul>
+<li><a href="http://www.jianshu.com/p/0acc12c29c1b" target="_blank" rel="external">Android开发：Translucent System Bar 的最佳实践</a>(16/02/23)<br>(关键字:StatusBar,状态栏,沉浸式状态栏)</li>
+</ul>
+<hr>
 <h1 id="android__u4F18_u5316"><a href="#android__u4F18_u5316" class="headerlink" title="android 优化"></a>android 优化</h1><h2 id="android__u81EA_u5B9A_u4E49View__u4F18_u5316"><a href="#android__u81EA_u5B9A_u4E49View__u4F18_u5316" class="headerlink" title="android 自定义View 优化"></a>android 自定义View 优化</h2><ul>
 <li><a href="http://www.bubuko.com/infodetail-185926.html" target="_blank" rel="external">Android中关于在onDraw或者onMeasure中创建对象提示Avoid object allocations during draw/layout operations (preallocate and reuse instead) 问题</a>(16/01/22)<br>(关键字:onDraw,优化,对象创建)</li>
+<li><strong><a href="http://www.2cto.com/kf/201504/390390.html" target="_blank" rel="external">Android性能优化系列——Understanding Overdraw</a></strong>(16/01/28)<br>(关键字:OverDraw优化,开发者工具,GPU)</li>
+<li><a href="http://blog.csdn.net/xu_fu/article/details/45008779" target="_blank" rel="external">Android性能优化系列——Profile GPU Rendering</a>(16/01/28)<br>(关键字:GPU渲染,开发者工具,OpenGL,关键帧)</li>
+</ul>
+<h2 id="u5206_u6790_u65B9_u6CD5_u5361_u987F_u7684_u795E_u5668TraceView"><a href="#u5206_u6790_u65B9_u6CD5_u5361_u987F_u7684_u795E_u5668TraceView" class="headerlink" title="分析方法卡顿的神器TraceView"></a>分析方法卡顿的神器TraceView</h2><ul>
+<li><a href="http://blog.jobbole.com/78995/" target="_blank" rel="external">正确使用Android性能分析工具——TraceView</a>(16/01/28)<br>(关键字:TraceView,卡顿分析,内存优化,方法分析)</li>
+</ul>
+<h2 id="u8FFD_u8E2A_u5185_u5B58_u6CC4_u9732_u7684_u5723_u5668_MAT_u2013_28MemoryAnalyzerTool_29"><a href="#u8FFD_u8E2A_u5185_u5B58_u6CC4_u9732_u7684_u5723_u5668_MAT_u2013_28MemoryAnalyzerTool_29" class="headerlink" title="追踪内存泄露的圣器 MAT–(MemoryAnalyzerTool)"></a>追踪内存泄露的圣器 MAT–(MemoryAnalyzerTool)</h2><ul>
+<li><a href="http://bjyzxxds.iteye.com/blog/1532937" target="_blank" rel="external">Shallow heap &amp; Retained heap的介绍</a>(16/01/28)<br>(关键字:MAT,内存泄露)</li>
+<li><strong><a href="http://www.jianshu.com/p/c49f778e7acf" target="_blank" rel="external">使用Android studio分析内存泄露</a></strong>(16/01/28)<br>(关键字:MAT,内存泄露,内存优化,Handler)</li>
 </ul>
 <h2 id="android__u5185_u5B58_u6CC4_u9732"><a href="#android__u5185_u5B58_u6CC4_u9732" class="headerlink" title="android 内存泄露"></a>android 内存泄露</h2><h3 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h3><blockquote>
 <p>在MVP模式中,可以将Presenter中的mActivity设置成弱引用,这样如果在Presenter中要执行一些耗时操作而持有activity不能被回收导致内存泄露的情况发生.<br>那么,如果设置成弱引用不会出现随意被垃圾收集器处理的情况,而出现Presenter引用到activity对象的null情况吗?<br><strong> 答案: 在android 原生的某个地方已经将activity设置为强引用了,这也是activity的生命周期的实现原理,所以此时不需要担心这个问题,而需要注意当系统本应该清除activity时候能保证也能正常处理就行了. </strong></p>
@@ -415,12 +463,24 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
 <li><a href="http://my.oschina.net/ydsakyclguozi/blog/404389?fromerr=n0OZIKDE" target="_blank" rel="external">Java 7之基础 - 强引用、弱引用、软引用、虚引用</a>(16/01/03)<br>(关键字:引用类型,生命周期)</li>
 <li><a href="http://blog.sina.cn/dpool/blog/s/blog_4e1e357d0101kig2.html" target="_blank" rel="external">为什么在 activity中 使用handler为甚要声明为静态的</a>(16/01/03)<br>(关键字:Handler,内存泄露,静态类型)</li>
 </ul>
+<hr>
 <h1 id="Android__u5E93"><a href="#Android__u5E93" class="headerlink" title="Android 库"></a>Android 库</h1><h2 id="SlidingPaneLayout"><a href="#SlidingPaneLayout" class="headerlink" title="SlidingPaneLayout"></a>SlidingPaneLayout</h2><blockquote>
 <p>这个库可以用做出像QQ一样的侧滑效果,也有点类似于DrawerLayout.</p>
 </blockquote>
 <ul>
 <li><a href="http://my.oschina.net/summerpxy/blog/211835" target="_blank" rel="external">SlidingPaneLayout的基本使用</a>(16/01/25)<br>(关键字:SlidingPanelLayout)</li>
 <li><a href="http://blog.csdn.net/xyz_lmn/article/details/12618149" target="_blank" rel="external">Android UI开发第三十四篇——SlidingPaneLayout</a>(16/01/25)<br>(关键字:SlidingPanelLayout)</li>
+</ul>
+<h1 id="Android__u5DE5_u5177"><a href="#Android__u5DE5_u5177" class="headerlink" title="Android 工具"></a>Android 工具</h1><h2 id="Android__u5F00_u53D1_u5B98_u65B9IDE_3AAndroid_Studio"><a href="#Android__u5F00_u53D1_u5B98_u65B9IDE_3AAndroid_Studio" class="headerlink" title="Android 开发官方IDE:Android Studio"></a>Android 开发官方IDE:Android Studio</h2><h3 id="u5FEB_u6377_u952E_u53CA_u4F7F_u7528_u6280_u5DE7_u5927_u5168"><a href="#u5FEB_u6377_u952E_u53CA_u4F7F_u7528_u6280_u5DE7_u5927_u5168" class="headerlink" title="快捷键及使用技巧大全"></a>快捷键及使用技巧大全</h3><ul>
+<li><a href="http://laobie.github.io/android/2016/02/14/android-studio-tips.html" target="_blank" rel="external">Android Studio 小技巧合集</a>(16/02/25)<br>(关键字:技巧,AS)</li>
+</ul>
+<hr>
+<h1 id="Android__u65B0_u7279_u6027"><a href="#Android__u65B0_u7279_u6027" class="headerlink" title="Android 新特性"></a>Android 新特性</h1><h2 id="Android_6-0_MashMallow"><a href="#Android_6-0_MashMallow" class="headerlink" title="Android 6.0 MashMallow"></a>Android 6.0 MashMallow</h2><ul>
+<li><a href="http://blog.csdn.net/lmj623565791/article/details/50709663" target="_blank" rel="external">Android 6.0 运行时权限处理完全解析</a>(16/03/23)</li>
+</ul>
+<hr>
+<h1 id="Android__u67B6_u6784"><a href="#Android__u67B6_u6784" class="headerlink" title="Android 架构"></a>Android 架构</h1><h3 id="MVP_u6A21_u5F0F"><a href="#MVP_u6A21_u5F0F" class="headerlink" title="MVP模式"></a>MVP模式</h3><ul>
+<li><a href="http://blog.csdn.net/lmj623565791/article/details/46596109" target="_blank" rel="external">浅谈 MVP in Android</a>(16/03/27)<br>(关键字:MVP)</li>
 </ul>
 </span>
       
@@ -433,17 +493,13 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/24/daily/java每日阅读笔记汇总/" rel="next" title="java每日阅读笔记汇总">
-                <i class="fa fa-chevron-left"></i> java每日阅读笔记汇总
+              <a href="/2016/03/27/Java/Java小技巧汇总/" rel="next" title="Java小技巧汇总">
+                <i class="fa fa-chevron-left"></i> Java小技巧汇总
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/26/Java/初次探索java 注解(Annotation)/" rel="prev" title="初次探索java注解(Annotation)">
-                初次探索java注解(Annotation) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -470,8 +526,8 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/26/daily/android每日阅读笔记汇总/"
-           data-title="android每日阅读笔记汇总" data-url="http://crainax.github.io/2016/01/26/daily/android每日阅读笔记汇总/">
+      <div class="ds-thread" data-thread-key="2016/03/27/daily/android每日阅读笔记汇总/"
+           data-title="android每日阅读笔记汇总" data-url="http://crainax.github.io/2016/03/27/daily/android每日阅读笔记汇总/">
       </div>
     
   </div>
@@ -515,14 +571,14 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -586,7 +642,7 @@ android 系统回调onSizeChange, onMeasure, onLayout调用">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android_Fragment"><span class="nav-number">1.</span> <span class="nav-text">android Fragment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment_u4E0EActivity_u7684_u4EA4_u4E92"><span class="nav-number">1.1.</span> <span class="nav-text">Fragment与Activity的交互</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android_View"><span class="nav-number">2.</span> <span class="nav-text">android View</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#onSizeChange"><span class="nav-number">2.1.</span> <span class="nav-text">onSizeChange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onDraw"><span class="nav-number">2.2.</span> <span class="nav-text">onDraw</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u81EA_u5B9A_u4E49ViewGroup_u8FC7_u7A0B"><span class="nav-number">2.3.</span> <span class="nav-text">自定义ViewGroup过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E0E_View__u5171_u6709_u4F46_u4E0D_u7C7B_u4F3C_u7684_u7ED8_u5236_u8FC7_u7A0B"><span class="nav-number">2.3.1.</span> <span class="nav-text">与 View 共有但不类似的绘制过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5173_u4E8EViewGroup_u4E2D_u7684Scroller_u7B80_u4ECB"><span class="nav-number">2.3.2.</span> <span class="nav-text">关于ViewGroup中的Scroller简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528ViewDragHelper_u505A_u51FA_u66F4_u597D_u7684_u6ED1_u52A8_u5B9A_u5236_u6548_u679C"><span class="nav-number">2.3.3.</span> <span class="nav-text">使用ViewDragHelper做出更好的滑动定制效果</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u5217_u8868"><span class="nav-number">3.</span> <span class="nav-text">android 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BF9_u4E8E_u9B45_u65CF_u4E2D_u7684ListView_u4F1A_u51FA_u73B0_u4E0B_u62C9_u60AC_u505C_u7684_u89E3_u51B3_u65B9_u6CD5"><span class="nav-number">3.1.</span> <span class="nav-text">对于魅族中的ListView会出现下拉悬停的解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5217_u8868_u4E2D_u7684_u5176_u4ED6_u6709_u7528_u90E8_u5206"><span class="nav-number">3.2.</span> <span class="nav-text">列表中的其他有用部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u56FE_u50CF_u5904_u7406"><span class="nav-number">4.</span> <span class="nav-text">android 图像处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528bitmap_xml_u505A_u6210_u6709_u91CD_u590D_u6392_u7248_u6548_u679C_u7684drawable_u8D44_u6E90_u6548_u679C"><span class="nav-number">4.1.</span> <span class="nav-text">使用bitmap xml做成有重复排版效果的drawable资源效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Shape_u505A_u51FA_u5404_u79CD_u6709_u8DA3_u7684_u6548_u679C"><span class="nav-number">4.2.</span> <span class="nav-text">使用Shape做出各种有趣的效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shape_u4E2D_u7684Gradient_u4E0B_u7684Angle_u5C5E_u6027_u7684_u4F5C_u7528_u8BE6_u89E3"><span class="nav-number">4.2.1.</span> <span class="nav-text">Shape中的Gradient下的Angle属性的作用详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Shader_u5BF9_u753B_u7B14_u6216_u8005_u56FE_u50CF_u8FDB_u884C_u64CD_u4F5C_u5904_u7406"><span class="nav-number">4.3.</span> <span class="nav-text">使用Shader对画笔或者图像进行操作处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android_u7CFB_u7EDF"><span class="nav-number">5.</span> <span class="nav-text">android系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><span class="nav-number">5.1.</span> <span class="nav-text">获取android设备中的可用内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><span class="nav-number">5.1.0.1.</span> <span class="nav-text">anrdoid群英传(16/01/01)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528google_u63D0_u4F9B_u7684_u5DE5_u5177_u8FDB_u884C_u53CD_u7F16_u8BD1"><span class="nav-number">5.2.</span> <span class="nav-text">使用google提供的工具进行反编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Android_Studio_u8BBE_u7F6E_u7B7E_u540D_3B_u591A_u6E20_u9053_u6253_u5305"><span class="nav-number">5.3.</span> <span class="nav-text">使用Android Studio设置签名;多渠道打包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u4F18_u5316"><span class="nav-number">6.</span> <span class="nav-text">android 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#android__u81EA_u5B9A_u4E49View__u4F18_u5316"><span class="nav-number">6.1.</span> <span class="nav-text">android 自定义View 优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android__u5185_u5B58_u6CC4_u9732"><span class="nav-number">6.2.</span> <span class="nav-text">android 内存泄露</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F15_u8A00"><span class="nav-number">6.2.1.</span> <span class="nav-text">引言</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android__u5E93"><span class="nav-number">7.</span> <span class="nav-text">Android 库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SlidingPaneLayout"><span class="nav-number">7.1.</span> <span class="nav-text">SlidingPaneLayout</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u56DB_u5927_u7EC4_u4EF6_u4E4B_u4E00_Activity"><span class="nav-number">1.</span> <span class="nav-text">android 四大组件之一 Activity</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity_u7684_u4EFB_u52A1_u6808_u5206_u6790"><span class="nav-number">1.1.</span> <span class="nav-text">Activity的任务栈分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#resultCode_u4E3ARESULT_CANCEL_u7684_u539F_u56E0"><span class="nav-number">1.1.1.</span> <span class="nav-text">resultCode为RESULT_CANCEL的原因</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u542F_u7528_u4EFB_u52A1_u6808"><span class="nav-number">1.1.2.</span> <span class="nav-text">启用任务栈</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Activity_u7684_u81EA_u52A8_u9500_u6BC1_u4FDD_u5B58_u6570_u636E_u673A_u5236_u2013onSaveInstanceState"><span class="nav-number">1.2.</span> <span class="nav-text">Activity的自动销毁保存数据机制–onSaveInstanceState</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5BF9_u4E8E_u8FD9_u4E24_u4E2A_u65B9_u6CD5_u7684_u89E6_u53D1_u65F6_u673A_3A"><span class="nav-number">1.2.1.</span> <span class="nav-text">对于这两个方法的触发时机:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5BF9_u4E8E_Android_L_u4E2D_u65B0_u52A0_u5165_u7684_u5E26_u6709PersistableBundle_u53C2_u6570_u7684_u4E09_u4E2A_u65B9_u6CD5_u7684_u4ECB_u7ECD_3A"><span class="nav-number">1.2.2.</span> <span class="nav-text">对于 Android L中新加入的带有PersistableBundle参数的三个方法的介绍:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android_Fragment"><span class="nav-number">2.</span> <span class="nav-text">android Fragment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Fragment_u4E0EActivity_u7684_u4EA4_u4E92"><span class="nav-number">2.1.</span> <span class="nav-text">Fragment与Activity的交互</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android_View"><span class="nav-number">3.</span> <span class="nav-text">android View</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#onSizeChange"><span class="nav-number">3.1.</span> <span class="nav-text">onSizeChange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#onDraw"><span class="nav-number">3.2.</span> <span class="nav-text">onDraw</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u81EA_u5B9A_u4E49ViewGroup_u8FC7_u7A0B"><span class="nav-number">3.3.</span> <span class="nav-text">自定义ViewGroup过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E0E_View__u5171_u6709_u4F46_u4E0D_u7C7B_u4F3C_u7684_u7ED8_u5236_u8FC7_u7A0B"><span class="nav-number">3.3.1.</span> <span class="nav-text">与 View 共有但不类似的绘制过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5173_u4E8EViewGroup_u4E2D_u7684Scroller_u7B80_u4ECB"><span class="nav-number">3.3.2.</span> <span class="nav-text">关于ViewGroup中的Scroller简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4F7F_u7528ViewDragHelper_u505A_u51FA_u66F4_u597D_u7684_u6ED1_u52A8_u5B9A_u5236_u6548_u679C"><span class="nav-number">3.3.3.</span> <span class="nav-text">使用ViewDragHelper做出更好的滑动定制效果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E00_u4E9B_u5B9E_u7528_u6280_u5DE7"><span class="nav-number">3.3.4.</span> <span class="nav-text">一些实用技巧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u5217_u8868"><span class="nav-number">4.</span> <span class="nav-text">android 列表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BF9_u4E8E_u9B45_u65CF_u4E2D_u7684ListView_u4F1A_u51FA_u73B0_u4E0B_u62C9_u60AC_u505C_u7684_u89E3_u51B3_u65B9_u6CD5"><span class="nav-number">4.1.</span> <span class="nav-text">对于魅族中的ListView会出现下拉悬停的解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5217_u8868_u4E2D_u7684_u5176_u4ED6_u6709_u7528_u90E8_u5206"><span class="nav-number">4.2.</span> <span class="nav-text">列表中的其他有用部分</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u56FE_u50CF_u5904_u7406"><span class="nav-number">5.</span> <span class="nav-text">android 图像处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528bitmap_xml_u505A_u6210_u6709_u91CD_u590D_u6392_u7248_u6548_u679C_u7684drawable_u8D44_u6E90_u6548_u679C"><span class="nav-number">5.1.</span> <span class="nav-text">使用bitmap xml做成有重复排版效果的drawable资源效果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Shape_u505A_u51FA_u5404_u79CD_u6709_u8DA3_u7684_u6548_u679C"><span class="nav-number">5.2.</span> <span class="nav-text">使用Shape做出各种有趣的效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Shape_u4E2D_u7684Gradient_u4E0B_u7684Angle_u5C5E_u6027_u7684_u4F5C_u7528_u8BE6_u89E3"><span class="nav-number">5.2.1.</span> <span class="nav-text">Shape中的Gradient下的Angle属性的作用详解</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Shader_u5BF9_u753B_u7B14_u6216_u8005_u56FE_u50CF_u8FDB_u884C_u64CD_u4F5C_u5904_u7406"><span class="nav-number">5.3.</span> <span class="nav-text">使用Shader对画笔或者图像进行操作处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Xfermode_u5B9E_u73B0_u56FE_u7247_u6DF7_u5408_u6548_u679C"><span class="nav-number">5.4.</span> <span class="nav-text">使用Xfermode实现图片混合效果</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android_u7CFB_u7EDF"><span class="nav-number">6.</span> <span class="nav-text">android系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u83B7_u53D6android_u8BBE_u5907_u4E2D_u7684_u53EF_u7528_u5185_u5B58"><span class="nav-number">6.1.</span> <span class="nav-text">获取android设备中的可用内存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#anrdoid_u7FA4_u82F1_u4F20_2816/01/01_29"><span class="nav-number">6.1.0.1.</span> <span class="nav-text">anrdoid群英传(16/01/01)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528google_u63D0_u4F9B_u7684_u5DE5_u5177_u8FDB_u884C_u53CD_u7F16_u8BD1"><span class="nav-number">6.2.</span> <span class="nav-text">使用google提供的工具进行反编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F7F_u7528Android_Studio_u8BBE_u7F6E_u7B7E_u540D_3B_u591A_u6E20_u9053_u6253_u5305"><span class="nav-number">6.3.</span> <span class="nav-text">使用Android Studio设置签名;多渠道打包</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u8BBE_u8BA1"><span class="nav-number">7.</span> <span class="nav-text">android 设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Material_Design"><span class="nav-number">7.1.</span> <span class="nav-text">Material Design</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Toolbar"><span class="nav-number">7.1.1.</span> <span class="nav-text">Toolbar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u900F_u660E_u72B6_u6001_u680F_u5B9E_u6218"><span class="nav-number">7.1.2.</span> <span class="nav-text">透明状态栏实战</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#android__u4F18_u5316"><span class="nav-number">8.</span> <span class="nav-text">android 优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#android__u81EA_u5B9A_u4E49View__u4F18_u5316"><span class="nav-number">8.1.</span> <span class="nav-text">android 自定义View 优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5206_u6790_u65B9_u6CD5_u5361_u987F_u7684_u795E_u5668TraceView"><span class="nav-number">8.2.</span> <span class="nav-text">分析方法卡顿的神器TraceView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8FFD_u8E2A_u5185_u5B58_u6CC4_u9732_u7684_u5723_u5668_MAT_u2013_28MemoryAnalyzerTool_29"><span class="nav-number">8.3.</span> <span class="nav-text">追踪内存泄露的圣器 MAT–(MemoryAnalyzerTool)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#android__u5185_u5B58_u6CC4_u9732"><span class="nav-number">8.4.</span> <span class="nav-text">android 内存泄露</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F15_u8A00"><span class="nav-number">8.4.1.</span> <span class="nav-text">引言</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android__u5E93"><span class="nav-number">9.</span> <span class="nav-text">Android 库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SlidingPaneLayout"><span class="nav-number">9.1.</span> <span class="nav-text">SlidingPaneLayout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android__u5DE5_u5177"><span class="nav-number">10.</span> <span class="nav-text">Android 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android__u5F00_u53D1_u5B98_u65B9IDE_3AAndroid_Studio"><span class="nav-number">10.1.</span> <span class="nav-text">Android 开发官方IDE:Android Studio</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5FEB_u6377_u952E_u53CA_u4F7F_u7528_u6280_u5DE7_u5927_u5168"><span class="nav-number">10.1.1.</span> <span class="nav-text">快捷键及使用技巧大全</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android__u65B0_u7279_u6027"><span class="nav-number">11.</span> <span class="nav-text">Android 新特性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Android_6-0_MashMallow"><span class="nav-number">11.1.</span> <span class="nav-text">Android 6.0 MashMallow</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Android__u67B6_u6784"><span class="nav-number">12.</span> <span class="nav-text">Android 架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MVP_u6A21_u5F0F"><span class="nav-number">12.0.1.</span> <span class="nav-text">MVP模式</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

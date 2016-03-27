@@ -1,0 +1,821 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="梦醒依旧流年." type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="数据结构C语言内功
+经过大一下的杨云涛神级讲解,使得现在C语言知识忘了好多,所以记录每日阅读过的笔记在这,以后再忘能回头再看~
+
+基本语法的深入探讨
+for循环语句头的执行顺序(16/02/12)(关键字:for循环,语句头,顺序)
+
+关于typedef struct的用法
+http://blog.sina.com.cn/s/blog_4fdabc820100fsxu.html(16/02/08)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基本知识每日阅读笔记汇总">
+<meta property="og:url" content="http://crainax.github.io/2016/03/06/daily/其他基本知识每日阅读笔记汇总/index.html">
+<meta property="og:site_name" content="梦醒依旧流年.">
+<meta property="og:description" content="数据结构C语言内功
+经过大一下的杨云涛神级讲解,使得现在C语言知识忘了好多,所以记录每日阅读过的笔记在这,以后再忘能回头再看~
+
+基本语法的深入探讨
+for循环语句头的执行顺序(16/02/12)(关键字:for循环,语句头,顺序)
+
+关于typedef struct的用法
+http://blog.sina.com.cn/s/blog_4fdabc820100fsxu.html(16/02/08)">
+<meta property="og:updated_time" content="2016-03-05T17:29:58.263Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基本知识每日阅读笔记汇总">
+<meta name="twitter:description" content="数据结构C语言内功
+经过大一下的杨云涛神级讲解,使得现在C语言知识忘了好多,所以记录每日阅读过的笔记在这,以后再忘能回头再看~
+
+基本语法的深入探讨
+for循环语句头的执行顺序(16/02/12)(关键字:for循环,语句头,顺序)
+
+关于typedef struct的用法
+http://blog.sina.com.cn/s/blog_4fdabc820100fsxu.html(16/02/08)">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always',
+    motion: true
+  };
+</script>
+
+  <title> 基本知识每日阅读笔记汇总 | 梦醒依旧流年. </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dbff5548869ec83e45508084cdfc0f47";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">梦醒依旧流年.</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'iHq3__LJhtPGwFabKPks','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基本知识每日阅读笔记汇总
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-03-06T01:29:58+08:00" content="2016-03-06">
+              2016-03-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/daily/" itemprop="url" rel="index">
+                    <span itemprop="name">daily</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/06/daily/其他基本知识每日阅读笔记汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/06/daily/其他基本知识每日阅读笔记汇总/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="u6570_u636E_u7ED3_u6784"><a href="#u6570_u636E_u7ED3_u6784" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="C_u8BED_u8A00_u5185_u529F"><a href="#C_u8BED_u8A00_u5185_u529F" class="headerlink" title="C语言内功"></a>C语言内功</h2><blockquote>
+<p>经过大一下的杨云涛神级讲解,使得现在C语言知识忘了好多,所以记录每日阅读过的笔记在这,以后再忘能回头再看~</p>
+</blockquote>
+<h3 id="u57FA_u672C_u8BED_u6CD5_u7684_u6DF1_u5165_u63A2_u8BA8"><a href="#u57FA_u672C_u8BED_u6CD5_u7684_u6DF1_u5165_u63A2_u8BA8" class="headerlink" title="基本语法的深入探讨"></a>基本语法的深入探讨</h3><ul>
+<li><a href="http://blog.csdn.net/fengyunjh/article/details/6161343" target="_blank" rel="external">for循环语句头的执行顺序</a>(16/02/12)<br>(关键字:for循环,语句头,顺序)</li>
+</ul>
+<h3 id="u5173_u4E8Etypedef_struct_u7684_u7528_u6CD5"><a href="#u5173_u4E8Etypedef_struct_u7684_u7528_u6CD5" class="headerlink" title="关于typedef struct的用法"></a>关于typedef struct的用法</h3><ul>
+<li><a href="http://blog.sina.com.cn/s/blog_4fdabc820100fsxu.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_4fdabc820100fsxu.html</a>(16/02/08)<br>(关键字:关于typedef,struct的用法,C语言)</li>
+</ul>
+<h2 id="u7B97_u6CD5_u5206_u6790_u57FA_u7840"><a href="#u7B97_u6CD5_u5206_u6790_u57FA_u7840" class="headerlink" title="算法分析基础"></a>算法分析基础</h2><ul>
+<li><a href="http://blog.csdn.net/RichardYSteven/article/details/5872672" target="_blank" rel="external">算法运行时间、logN、NlogN 之间的比较</a>(16/03/03)<br>(关键字:时间复杂度)</li>
+</ul>
+<h2 id="u7EBF_u6027_u8868"><a href="#u7EBF_u6027_u8868" class="headerlink" title="线性表"></a>线性表</h2><h3 id="u94FE_u8868"><a href="#u94FE_u8868" class="headerlink" title="链表"></a>链表</h3><h4 id="u94FE_u8868_u4E2D_u7684_u73AF"><a href="#u94FE_u8868_u4E2D_u7684_u73AF" class="headerlink" title="链表中的环"></a>链表中的环</h4><ul>
+<li><a href="http://www.cnblogs.com/shuaiwhu/archive/2012/05/03/2480509.html" target="_blank" rel="external">判断单链表是否有环的两种方法</a>(16/02/13)<br>(关键字:单链表,环,判断)</li>
+</ul>
+<h4 id="u9759_u6001_u94FE_u8868_28Static_Linked_list_29"><a href="#u9759_u6001_u94FE_u8868_28Static_Linked_list_29" class="headerlink" title="静态链表(Static Linked list)"></a>静态链表(Static Linked list)</h4><ul>
+<li><a href="http://blog.csdn.net/scu_daiwei/article/details/8511069" target="_blank" rel="external">静态链表</a>(16/02/11)<br>(关键字:静态链表)</li>
+</ul>
+<h2 id="u961F_u5217"><a href="#u961F_u5217" class="headerlink" title="队列"></a>队列</h2><h3 id="u5FAA_u73AF_u961F_u5217"><a href="#u5FAA_u73AF_u961F_u5217" class="headerlink" title="循环队列"></a>循环队列</h3><ul>
+<li><a href="http://blog.csdn.net/huangkq1989/article/details/5719529" target="_blank" rel="external">循环队列的队空与队满的条件</a>(16/02/11)<br>(关键字:循环队列,队空,队满)</li>
+</ul>
+<h3 id="u6548_u7387_u95EE_u9898"><a href="#u6548_u7387_u95EE_u9898" class="headerlink" title="效率问题"></a>效率问题</h3><blockquote>
+<p>对于单链表的插入原理是先查询后插入,时间复杂度是O(n),而顺序存储结构好像时间复杂度也是O(n),那为什么链表适用于插入而不适合查询呢?</p>
+</blockquote>
+<ul>
+<li><a href="http://www.cnblogs.com/super-d2/archive/2012/08/10/2632064.html" target="_blank" rel="external">顺序存储结构与链式存储结构的比较（也可以说的顺序表与链表的比较）</a>(16/02/10)</li>
+<li><a href="http://bbs.chinaunix.net/forum.php?mod=viewthread&amp;tid=1629550" target="_blank" rel="external">遍历链表与数组，哪个效率高</a>(16/02/10)<br>(关键字:链表,数组,效率)</li>
+<li><a href="http://www.cskaoyan.com/redirect.php?fid=24&amp;tid=5539&amp;goto=nextoldset" target="_blank" rel="external">单链表删除和插入的时间复杂度是O（1）还是O（n）啊</a>(16/02/10)<br>(关键字:链表,数组,效率,时间复杂度)</li>
+</ul>
+<h2 id="u6811"><a href="#u6811" class="headerlink" title="树"></a>树</h2><h3 id="u4E8C_u53C9_u6811"><a href="#u4E8C_u53C9_u6811" class="headerlink" title="二叉树"></a>二叉树</h3><h4 id="u54C8_u592B_u66FC_u6811"><a href="#u54C8_u592B_u66FC_u6811" class="headerlink" title="哈夫曼树"></a>哈夫曼树</h4><ul>
+<li><a href="http://blog.csdn.net/arcsinsin/article/details/10153963" target="_blank" rel="external">哈夫曼树</a>(16/03/03)<br>(关键字:哈夫曼树,带权图,编码优化)</li>
+<li><a href="http://blog.csdn.net/wuhao8989/article/details/10070851" target="_blank" rel="external">Huffman树</a>(16/03/03)<br>(关键字:哈夫曼树,带权图,编码优化)</li>
+<li><a href="http://www.cnblogs.com/Braveliu/p/3453900.html" target="_blank" rel="external">赫夫曼树</a>(16/03/03)<br>(关键字:哈夫曼树,带权图,编码优化)</li>
+<li><a href="http://www.roading.org/algorithm/introductiontoalgorithm/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA%E8%B5%AB%E5%A4%AB%E6%9B%BC%E7%BC%96%E7%A0%81.html" target="_blank" rel="external">赫夫曼编码</a>(16/03/03)<br>(关键字:哈夫曼树,带权图,编码优化)</li>
+<li><a href="http://www.cnblogs.com/ghostll/p/3550802.html" target="_blank" rel="external">Huffman树&amp;&amp;Huffman编码</a>(16/03/03)<br>(关键字:哈夫曼树,带权图,编码优化)</li>
+</ul>
+<h1 id="u7B97_u6CD5"><a href="#u7B97_u6CD5" class="headerlink" title="算法"></a>算法</h1><h2 id="Chord_u7B97_u6CD5"><a href="#Chord_u7B97_u6CD5" class="headerlink" title="Chord算法"></a>Chord算法</h2><blockquote>
+<p>在自顶向下中的P2P中的DHT的介绍中有关于Chord算法的使用,说得比较抽象,上网找了一下关于这种算法的资料.</p>
+</blockquote>
+<ul>
+<li><a href="http://blog.csdn.net/wangxiaoqin00007/article/details/7374833" target="_blank" rel="external">Chord算法</a>(16/02/09)<br>(关键字:DHT,P2P,Chord,Stabilize,predecessor)</li>
+</ul>
+<h2 id="u5B57_u7B26_u4E32_u5339_u914D_u7B97_u6CD5"><a href="#u5B57_u7B26_u4E32_u5339_u914D_u7B97_u6CD5" class="headerlink" title="字符串匹配算法"></a>字符串匹配算法</h2><h3 id="Brute_Force_u7B97_u6CD5"><a href="#Brute_Force_u7B97_u6CD5" class="headerlink" title="Brute Force算法"></a>Brute Force算法</h3><ul>
+<li><a href="http://blog.csdn.net/timidsmile/article/details/8952113" target="_blank" rel="external">BF 算法</a>(16/02/27)<br>(关键字:BF算法,KMP算法优化前)</li>
+</ul>
+<h3 id="KMP_u7B97_u6CD5"><a href="#KMP_u7B97_u6CD5" class="headerlink" title="KMP算法"></a>KMP算法</h3><ul>
+<li><a href="http://www.ruanyifeng.com/blog/2013/05/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm.html" target="_blank" rel="external">字符串匹配的KMP算法</a>(16/02/27)<br>(关键字:KMP算法)</li>
+<li><a href="http://blog.csdn.net/v_july_v/article/details/7041827" target="_blank" rel="external">从头到尾彻底理解KMP（2014年8月22日版）</a>(16/02/27)<br>(关键字:KMP算法)</li>
+</ul>
+<h1 id="u8BA1_u7B97_u673A_u7F51_u7EDC"><a href="#u8BA1_u7B97_u673A_u7F51_u7EDC" class="headerlink" title="计算机网络"></a>计算机网络</h1><h2 id="u5E94_u7528_u5C42_28Application_Layer_29"><a href="#u5E94_u7528_u5C42_28Application_Layer_29" class="headerlink" title="应用层(Application Layer)"></a>应用层(Application Layer)</h2><h3 id="u7535_u5B50_u90AE_u4EF6_28SMTP_29"><a href="#u7535_u5B50_u90AE_u4EF6_28SMTP_29" class="headerlink" title="电子邮件(SMTP)"></a>电子邮件(SMTP)</h3><h4 id="IMAP_u548CPOP3_u534F_u8BAE"><a href="#IMAP_u548CPOP3_u534F_u8BAE" class="headerlink" title="IMAP和POP3协议"></a>IMAP和POP3协议</h4><ul>
+<li><a href="http://help.163.com/10/0203/13/5UJONJ4I00753VB8.html" target="_blank" rel="external">IMAP和POP3有什么区别?</a>(16/02/11)<br>(关键字:IMAP,POP3,SMTP)</li>
+</ul>
+<h3 id="u5BF9_u7B49_u6A21_u5F0F_28p2p_29"><a href="#u5BF9_u7B49_u6A21_u5F0F_28p2p_29" class="headerlink" title="对等模式(p2p)"></a>对等模式(p2p)</h3><h4 id="BitTorrent"><a href="#BitTorrent" class="headerlink" title="BitTorrent"></a>BitTorrent</h4><ul>
+<li><a href="http://www.cnblogs.com/hnrainll/archive/2011/08/02/2125103.html" target="_blank" rel="external">BitTorrent详解</a>(16/02/10)<br>(关键字:BitTorrent,阻塞,optimistic unchoking,seed)</li>
+</ul>
+<h1 id="u5DE5_u5177_u5927_u6CD5_u597D"><a href="#u5DE5_u5177_u5927_u6CD5_u597D" class="headerlink" title="工具大法好"></a>工具大法好</h1><h2 id="Jerbrains"><a href="#Jerbrains" class="headerlink" title="Jerbrains"></a>Jerbrains</h2><ul>
+<li><a href="http://blog.lanyus.com/archives/168.html" target="_blank" rel="external">Jerbrains系列15版激活码</a>(16/02/27)<br>(关键字:激活码)</li>
+<li><a href="http://www.jikexueyuan.com/course/424_1.html?ss=2" target="_blank" rel="external">在 Windows 平台配置 GNU 环境</a>(16/02/27)<br>(关键字:Clion环境配置,MinGW)</li>
+<li><a href="http://www.jikexueyuan.com/course/424_5.html?ss=2" target="_blank" rel="external">在 Windows 平台搭建 CLion 集成开发环境</a>(16/02/27)<br>(关键字:Clion环境配置,MinGW)</li>
+</ul>
+<h2 id="Chrome__u63D2_u4EF6"><a href="#Chrome__u63D2_u4EF6" class="headerlink" title="Chrome 插件"></a>Chrome 插件</h2><ul>
+<li><a href="http://stormzhang.com/devtools/2016/01/15/google-chrome-extension/" target="_blank" rel="external"><br>私人珍藏的Chrome插件，吐血推荐</a>(16/03/06)<br>(关键字:Chrome插件)</li>
+</ul>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/03/Java/初次探索java 注解(Annotation)/" rel="next" title="初次探索java注解(Annotation)">
+                <i class="fa fa-chevron-left"></i> 初次探索java注解(Annotation)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/23/数据结构/线索二叉树的建立与遍历/" rel="prev" title="线索二叉树的建立与遍历C语言实现过程详解">
+                线索二叉树的建立与遍历C语言实现过程详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/06/daily/其他基本知识每日阅读笔记汇总/"
+           data-title="基本知识每日阅读笔记汇总" data-url="http://crainax.github.io/2016/03/06/daily/其他基本知识每日阅读笔记汇总/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xpmqf.com1.z0.glb.clouddn.com/16-1-13/75773997.jpg" alt="Crainax" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Crainax</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">Crainax's Blog.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Crainax/crainax.github.io" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhu-ze-ji-43" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u6570_u636E_u7ED3_u6784"><span class="nav-number">1.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#C_u8BED_u8A00_u5185_u529F"><span class="nav-number">1.1.</span> <span class="nav-text">C语言内功</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u57FA_u672C_u8BED_u6CD5_u7684_u6DF1_u5165_u63A2_u8BA8"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本语法的深入探讨</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5173_u4E8Etypedef_struct_u7684_u7528_u6CD5"><span class="nav-number">1.1.2.</span> <span class="nav-text">关于typedef struct的用法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B97_u6CD5_u5206_u6790_u57FA_u7840"><span class="nav-number">1.2.</span> <span class="nav-text">算法分析基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7EBF_u6027_u8868"><span class="nav-number">1.3.</span> <span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u94FE_u8868"><span class="nav-number">1.3.1.</span> <span class="nav-text">链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u94FE_u8868_u4E2D_u7684_u73AF"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">链表中的环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u9759_u6001_u94FE_u8868_28Static_Linked_list_29"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">静态链表(Static Linked list)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u961F_u5217"><span class="nav-number">1.4.</span> <span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5FAA_u73AF_u961F_u5217"><span class="nav-number">1.4.1.</span> <span class="nav-text">循环队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6548_u7387_u95EE_u9898"><span class="nav-number">1.4.2.</span> <span class="nav-text">效率问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6811"><span class="nav-number">1.5.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u4E8C_u53C9_u6811"><span class="nav-number">1.5.1.</span> <span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u54C8_u592B_u66FC_u6811"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">哈夫曼树</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u7B97_u6CD5"><span class="nav-number">2.</span> <span class="nav-text">算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Chord_u7B97_u6CD5"><span class="nav-number">2.1.</span> <span class="nav-text">Chord算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5B57_u7B26_u4E32_u5339_u914D_u7B97_u6CD5"><span class="nav-number">2.2.</span> <span class="nav-text">字符串匹配算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Brute_Force_u7B97_u6CD5"><span class="nav-number">2.2.1.</span> <span class="nav-text">Brute Force算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP_u7B97_u6CD5"><span class="nav-number">2.2.2.</span> <span class="nav-text">KMP算法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8BA1_u7B97_u673A_u7F51_u7EDC"><span class="nav-number">3.</span> <span class="nav-text">计算机网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5E94_u7528_u5C42_28Application_Layer_29"><span class="nav-number">3.1.</span> <span class="nav-text">应用层(Application Layer)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u7535_u5B50_u90AE_u4EF6_28SMTP_29"><span class="nav-number">3.1.1.</span> <span class="nav-text">电子邮件(SMTP)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#IMAP_u548CPOP3_u534F_u8BAE"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">IMAP和POP3协议</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5BF9_u7B49_u6A21_u5F0F_28p2p_29"><span class="nav-number">3.1.2.</span> <span class="nav-text">对等模式(p2p)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#BitTorrent"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">BitTorrent</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u5DE5_u5177_u5927_u6CD5_u597D"><span class="nav-number">4.</span> <span class="nav-text">工具大法好</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Jerbrains"><span class="nav-number">4.1.</span> <span class="nav-text">Jerbrains</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Chrome__u63D2_u4EF6"><span class="nav-number">4.2.</span> <span class="nav-text">Chrome 插件</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Crainax</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"crainax"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

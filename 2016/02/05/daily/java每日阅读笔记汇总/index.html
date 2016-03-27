@@ -53,17 +53,28 @@
 
 
 
-<meta name="description" content="JavaSE 自带的注解我们可以自定义一个类,其中定义了一个方法,并用Deprecated注解去标注该方法已经过时,可以看到在main方法中调用该方法会报出警告.1234567891011public class AnnotationDemo1 &amp;#123;    public static void main(String[] args) &amp;#123;        //此时可以看出下面这句语句">
+<meta name="description" content="java基本类型四道Java基础题 你能对几道？引言
+四道Java基础题 你能对几道？(15/12/30)一、==符在Integer中的判断二、==在String中的判断三、final关键字在内部类中的作用四、Integer与int的几个判断(关键字: 装箱,拆箱,final,常量池)
+
+扩展阅读
+深入剖析Java中的装箱和拆箱(15/12/30)(关键字:javap 反编译,装箱,拆箱, val">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初次探索java注解(Annotation)">
-<meta property="og:url" content="http://crainax.github.io/2016/01/26/Java/初次探索java 注解(Annotation)/index.html">
+<meta property="og:title" content="java每日阅读笔记汇总">
+<meta property="og:url" content="http://crainax.github.io/2016/02/05/daily/java每日阅读笔记汇总/index.html">
 <meta property="og:site_name" content="梦醒依旧流年.">
-<meta property="og:description" content="JavaSE 自带的注解我们可以自定义一个类,其中定义了一个方法,并用Deprecated注解去标注该方法已经过时,可以看到在main方法中调用该方法会报出警告.1234567891011public class AnnotationDemo1 &amp;#123;    public static void main(String[] args) &amp;#123;        //此时可以看出下面这句语句">
-<meta property="og:image" content="http://7xpmqf.com1.z0.glb.clouddn.com/15-12-31/70085738.jpg">
-<meta property="og:updated_time" content="2016-01-26T10:17:54.505Z">
+<meta property="og:description" content="java基本类型四道Java基础题 你能对几道？引言
+四道Java基础题 你能对几道？(15/12/30)一、==符在Integer中的判断二、==在String中的判断三、final关键字在内部类中的作用四、Integer与int的几个判断(关键字: 装箱,拆箱,final,常量池)
+
+扩展阅读
+深入剖析Java中的装箱和拆箱(15/12/30)(关键字:javap 反编译,装箱,拆箱, val">
+<meta property="og:updated_time" content="2016-02-05T15:25:00.159Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初次探索java注解(Annotation)">
-<meta name="twitter:description" content="JavaSE 自带的注解我们可以自定义一个类,其中定义了一个方法,并用Deprecated注解去标注该方法已经过时,可以看到在main方法中调用该方法会报出警告.1234567891011public class AnnotationDemo1 &amp;#123;    public static void main(String[] args) &amp;#123;        //此时可以看出下面这句语句">
+<meta name="twitter:title" content="java每日阅读笔记汇总">
+<meta name="twitter:description" content="java基本类型四道Java基础题 你能对几道？引言
+四道Java基础题 你能对几道？(15/12/30)一、==符在Integer中的判断二、==在String中的判断三、final关键字在内部类中的作用四、Integer与int的几个判断(关键字: 装箱,拆箱,final,常量池)
+
+扩展阅读
+深入剖析Java中的装箱和拆箱(15/12/30)(关键字:javap 反编译,装箱,拆箱, val">
 
 
 
@@ -75,7 +86,7 @@
   };
 </script>
 
-  <title> 初次探索java注解(Annotation) | 梦醒依旧流年. </title>
+  <title> java每日阅读笔记汇总 | 梦醒依旧流年. </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -240,7 +251,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-tags " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -251,7 +262,7 @@
             
             
               
-                初次探索java注解(Annotation)
+                java每日阅读笔记汇总
               
             
           </h1>
@@ -260,8 +271,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-01-26T18:18:02+08:00" content="2016-01-26">
-              2016-01-26
+            <time itemprop="dateCreated" datetime="2016-02-05T23:25:00+08:00" content="2016-02-05">
+              2016-02-05
             </time>
           </span>
 
@@ -270,8 +281,8 @@
               &nbsp; | &nbsp; 分类于
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/daily/" itemprop="url" rel="index">
+                    <span itemprop="name">daily</span>
                   </a>
                 </span>
 
@@ -286,8 +297,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/01/26/Java/初次探索java 注解(Annotation)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/26/Java/初次探索java 注解(Annotation)/" itemprop="commentsCount"></span>
+                <a href="/2016/02/05/daily/java每日阅读笔记汇总/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/05/daily/java每日阅读笔记汇总/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -306,20 +317,39 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="JavaSE__u81EA_u5E26_u7684_u6CE8_u89E3"><a href="#JavaSE__u81EA_u5E26_u7684_u6CE8_u89E3" class="headerlink" title="JavaSE 自带的注解"></a>JavaSE 自带的注解</h2><p>我们可以自定义一个类,其中定义了一个方法,并用Deprecated注解去标注该方法已经过时,可以看到在main方法中调用该方法会报出警告.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationDemo1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//此时可以看出下面这句语句编译器是发出警告的</span></span><br><span class="line">        test1();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Deprecated</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>但是用到java.lang包下的@SuppressWarnings注解就可以消除该警告:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnnotationDemo1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//此时警告消除</span></span><br><span class="line">        test1();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Deprecated</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="u81EA_u5B9A_u4E49_u6CE8_u89E3_u5B9E_u6218"><a href="#u81EA_u5B9A_u4E49_u6CE8_u89E3_u5B9E_u6218" class="headerlink" title="自定义注解实战"></a>自定义注解实战</h2><h3 id="1-_u83B7_u53D6_u6CE8_u89E3_u7684_u4FE1_u606F"><a href="#1-_u83B7_u53D6_u6CE8_u89E3_u7684_u4FE1_u606F" class="headerlink" title="1.获取注解的信息"></a>1.获取注解的信息</h3><p>我们可以使用Intellij  IDEA快速生成注解:<br><img src="http://7xpmqf.com1.z0.glb.clouddn.com/15-12-31/70085738.jpg" alt=""></p>
-<p>自定义注解类代码如下:<br><strong>Description.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Target</span>(&#123;ElementType.METHOD, ElementType.TYPE&#125;)</span><br><span class="line"><span class="annotation">@Retention</span>(RetentionPolicy.RUNTIME)</span><br><span class="line"><span class="annotation">@Inherited</span></span><br><span class="line"><span class="annotation">@Documented</span></span><br><span class="line"><span class="keyword">public</span> <span class="annotation">@interface</span> Description &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>引用注解类代码如下:<br><strong>MyAnn1.java</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="annotation">@Description</span>(<span class="string">"I am class annotation"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyAnn1</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这里会报错: @Description is nuo applicable to field,因为在定义注解时候我们没有在@Target中去定义field目标.所以我们</span></span><br><span class="line">    <span class="annotation">@Description</span>(<span class="string">"I am field annotation"</span>)</span><br><span class="line">    <span class="keyword">private</span> String testField;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Description</span>(<span class="string">"I am method annotation"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">name</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>我们再写一个解析处理器去处理这些注解信息,其中main方法入口也在这里:</p>
-<h4 id="u5904_u7406_u81EA_u5B9A_u4E49_u6CE8_u89E3_u7684_u6B65_u9AA4_3A"><a href="#u5904_u7406_u81EA_u5B9A_u4E49_u6CE8_u89E3_u7684_u6B65_u9AA4_3A" class="headerlink" title="处理自定义注解的步骤:"></a>处理自定义注解的步骤:</h4><ol>
-<li>首先用java 提供的反射方法获取类加载器</li>
-<li>使用getAnnotation找到类下的注解,并获取其中已经定义的值.</li>
-<li>再用类加载器的方法获取所有method,遍历判断是否有注解并获取到注解,从而获取到值.<br><strong>ParseAnn.java</strong></li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.reflect.Method;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ParseAnn</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//首先用java 提供的反射方法获取类加载器</span></span><br><span class="line">            Class&lt;?&gt; clazz = Class.forName(<span class="string">"diy.MyAnn1"</span>);<span class="comment">//这里需要注意加上包名不然会抛异常</span></span><br><span class="line">            <span class="keyword">if</span> (clazz.isAnnotationPresent(Description.class)) &#123;</span><br><span class="line">                <span class="comment">//获取到类注解</span></span><br><span class="line">                Description description = clazz.getAnnotation(Description.class);</span><br><span class="line">                System.out.println(description.value());<span class="comment">//value()方法就是定义在注解类中的一个方法.</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//获取方法下的类注解</span></span><br><span class="line">            Method[] methods = clazz.getMethods();</span><br><span class="line">            <span class="keyword">for</span> (Method method : methods) &#123;</span><br><span class="line">                <span class="keyword">if</span> (method.isAnnotationPresent(Description.class)) &#123;</span><br><span class="line">                    Description description = method.getAnnotation(Description.class);</span><br><span class="line">                    System.out.println(description.value());</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>然后运行,可以看到程序运行结果和预想的一样:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">I am class annotation&#10;I am method annotation</span><br></pre></td></tr></table></figure></p>
-<h3 id="u540E_u7EED_u66F4_u65B0_u4E2D_u2026"><a href="#u540E_u7EED_u66F4_u65B0_u4E2D_u2026" class="headerlink" title="后续更新中…."></a>后续更新中….</h3></span>
+        <span itemprop="articleBody"><h1 id="java_u57FA_u672C_u7C7B_u578B"><a href="#java_u57FA_u672C_u7C7B_u578B" class="headerlink" title="java基本类型"></a>java基本类型</h1><h2 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F" class="headerlink" title="四道Java基础题 你能对几道？"></a>四道Java基础题 你能对几道？</h2><h3 id="u5F15_u8A00"><a href="#u5F15_u8A00" class="headerlink" title="引言"></a>引言</h3><blockquote>
+<h3 id="u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29"><a href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29" class="headerlink" title="四道Java基础题 你能对几道？(15/12/30)"></a><a href="http://blog.csdn.net/soul_code/article/details/50369947" target="_blank" rel="external">四道Java基础题 你能对几道？</a>(15/12/30)</h3><p>一、==符在Integer中的判断<br>二、==在String中的判断<br>三、final关键字在内部类中的作用<br>四、Integer与int的几个判断<br>(关键字: 装箱,拆箱,final,常量池)</p>
+</blockquote>
+<h3 id="u6269_u5C55_u9605_u8BFB"><a href="#u6269_u5C55_u9605_u8BFB" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
+<li><a href="http://www.cnblogs.com/dolphin0520/p/3780005.html" target="_blank" rel="external">深入剖析Java中的装箱和拆箱</a>(15/12/30)<br>(关键字:javap 反编译,装箱,拆箱, valueOf)</li>
+<li><a href="http://www.jb51.net/article/31934.htm" target="_blank" rel="external">java自动装箱拆箱深入剖析</a>(15/12/30)<br>(关键字:装箱,拆箱,javaSE5.0,享元模式,flyWeight)</li>
+<li><a href="http://www.cnblogs.com/iyangyuan/p/4631696.html" target="_blank" rel="external">触摸java常量池</a>(15/12/30)<br>(关键字:常量池,jvm虚拟机,编译时期,class文件构造,jvm参数,)</li>
+<li><a href="http://blog.csdn.net/olanlanxiari/article/details/8104505" target="_blank" rel="external">java常量池概念</a>(15/12/30)<br>(关键字:Integer源码,常量池)</li>
+</ul>
+<h2 id="u5BF9_u4E8Efor_u5FAA_u73AF_u4E2D_u7684i++__u548C_++i__u7684_u63A2_u8BA8"><a href="#u5BF9_u4E8Efor_u5FAA_u73AF_u4E2D_u7684i++__u548C_++i__u7684_u63A2_u8BA8" class="headerlink" title="对于for循环中的i++ 和 ++i 的探讨"></a>对于for循环中的i++ 和 ++i 的探讨</h2><h3 id="u6700_u7B80_u5355_u7684_u9A8C_u8BC1_u65B9_u5F0F_u5C31_u662F_u5199_u4EE3_u7801_u9A8C_u8BC1_u4E00_u4E0B_3A"><a href="#u6700_u7B80_u5355_u7684_u9A8C_u8BC1_u65B9_u5F0F_u5C31_u662F_u5199_u4EE3_u7801_u9A8C_u8BC1_u4E00_u4E0B_3A" class="headerlink" title="最简单的验证方式就是写代码验证一下:"></a>最简单的验证方式就是写代码验证一下:</h3>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">        System.out.println(<span class="string">"i = "</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; ++i) &#123;</span><br><span class="line">        System.out.println(<span class="string">"i = "</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong> 结果如下: </strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">i = <span class="number">2</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">i = <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>所以可以看出在结果上这两种循环并没有什么区别</p>
+<ul>
+<li><a href="http://www.cskaoyan.com/thread-40999-1-1.html" target="_blank" rel="external">for循环中i++是不是比++i多循环一次？</a>(16/01/24)<br>(关键字:for循环)</li>
+<li><a href="http://bbs.csdn.net/topics/30253911" target="_blank" rel="external">i++和++i用在for循环语句中有什么区别？</a>(16/01/24)<br>(关键字:for循环)</li>
+<li><a href="http://blog.csdn.net/zy1691/article/details/4849808" target="_blank" rel="external">for循环中i++与++i的效率探究</a>(16/01/24)<br>(关键字:for循环,效率探究)</li>
+</ul>
+<hr>
+<h1 id="java__u6CE8_u89E3"><a href="#java__u6CE8_u89E3" class="headerlink" title="java 注解"></a>java 注解</h1><h2 id="u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29"><a href="#u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29" class="headerlink" title="初次接触java 注解(Annotation)"></a>初次接触java 注解(Annotation)</h2><h3 id="u6269_u5C55_u9605_u8BFB-1"><a href="#u6269_u5C55_u9605_u8BFB-1" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
+<li><a href="http://blog.csdn.net/mddy2001/article/details/8291484" target="_blank" rel="external">@SuppressWarnings的使用、作用、用法</a>(15/12/31)<br>(关键字: 注解,SuppressWarnings,参数)</li>
+<li><a href="http://blog.csdn.net/cighao/article/details/50295751" target="_blank" rel="external">全面解析 Java 注解</a>(15/12/31)<br>(关键字:注解, )</li>
+</ul>
+<hr>
+<h1 id="java__u679A_u4E3E"><a href="#java__u679A_u4E3E" class="headerlink" title="java 枚举"></a>java 枚举</h1><h2 id="u521D_u6B21_u63A5_u89E6java__u679A_u4E3E_28Enum_29"><a href="#u521D_u6B21_u63A5_u89E6java__u679A_u4E3E_28Enum_29" class="headerlink" title="初次接触java 枚举(Enum)"></a>初次接触java 枚举(Enum)</h2><h3 id="u6269_u5C55_u9605_u8BFB-2"><a href="#u6269_u5C55_u9605_u8BFB-2" class="headerlink" title="扩展阅读"></a>扩展阅读</h3><ul>
+<li><a href="http://blog.csdn.net/soul_code/article/details/50440183" target="_blank" rel="external">Java高级特性枚举</a>(16/01/02)<br><a href="https://github.com/Crainax/DemoCode/blob/master/Java/Demo/Demo_Enum/EnumTest.java" target="_blank" rel="external">点击查看demo代码</a><br>(关键字:枚举)</li>
+</ul>
+<h1 id="java__u8BBE_u8BA1_u6A21_u5F0F"><a href="#java__u8BBE_u8BA1_u6A21_u5F0F" class="headerlink" title="java 设计模式"></a>java 设计模式</h1><h2 id="u4EE3_u7406_u6A21_u5F0F_28Proxy_29"><a href="#u4EE3_u7406_u6A21_u5F0F_28Proxy_29" class="headerlink" title="代理模式(Proxy)"></a>代理模式(Proxy)</h2><ul>
+<li><a href="http://www.iteye.com/topic/683613/" target="_blank" rel="external">java 动态代理学习(Proxy,InvocationHandler)——自己的理解</a>(16/02/05)<br>(关键字:设计模式,Proxy,代理模式,InvocationHandler,反射,动态代理)</li>
+</ul>
+<h2 id="UML_u56FE_28_u7EDF_u4E00_u5EFA_u6A21_u8BED_u8A00_29"><a href="#UML_u56FE_28_u7EDF_u4E00_u5EFA_u6A21_u8BED_u8A00_29" class="headerlink" title="UML图(统一建模语言)"></a>UML图(统一建模语言)</h2><ul>
+<li><a href="http://www.open-open.com/lib/view/open1328059700311.html" target="_blank" rel="external">UML类图几种关系的总结</a>(16/02/05)<br>(关键字:UML,泛化,实现,关联,聚合,组合,依赖)</li>
+</ul>
+</span>
       
     </div>
 
@@ -330,16 +360,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/26/daily/android每日阅读笔记汇总/" rel="next" title="android每日阅读笔记汇总">
-                <i class="fa fa-chevron-left"></i> android每日阅读笔记汇总
+              <a href="/2016/01/26/Android/对于在Activity中onCreate()方法中获取View长宽为0的解决方法/" rel="next" title="对于在Activity中的onCreate()方法中获取View的长宽为0的解决方法">
+                <i class="fa fa-chevron-left"></i> 对于在Activity中的onCreate()方法中获取View的长宽为0的解决方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/01/26/Android/对于在Activity中onCreate()方法中获取View长宽为0的解决方法/" rel="prev" title="对于在Activity中的onCreate()方法中获取View的长宽为0的解决方法">
-                对于在Activity中的onCreate()方法中获取View的长宽为0的解决方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/03/03/Java/初次探索java 注解(Annotation)/" rel="prev" title="初次探索java注解(Annotation)">
+                初次探索java注解(Annotation) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -367,8 +397,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/01/26/Java/初次探索java 注解(Annotation)/"
-           data-title="初次探索java注解(Annotation)" data-url="http://crainax.github.io/2016/01/26/Java/初次探索java 注解(Annotation)/">
+      <div class="ds-thread" data-thread-key="2016/02/05/daily/java每日阅读笔记汇总/"
+           data-title="java每日阅读笔记汇总" data-url="http://crainax.github.io/2016/02/05/daily/java每日阅读笔记汇总/">
       </div>
     
   </div>
@@ -412,14 +442,14 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
@@ -483,7 +513,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaSE__u81EA_u5E26_u7684_u6CE8_u89E3"><span class="nav-number">1.</span> <span class="nav-text">JavaSE 自带的注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u81EA_u5B9A_u4E49_u6CE8_u89E3_u5B9E_u6218"><span class="nav-number">2.</span> <span class="nav-text">自定义注解实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-_u83B7_u53D6_u6CE8_u89E3_u7684_u4FE1_u606F"><span class="nav-number">2.1.</span> <span class="nav-text">1.获取注解的信息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u5904_u7406_u81EA_u5B9A_u4E49_u6CE8_u89E3_u7684_u6B65_u9AA4_3A"><span class="nav-number">2.1.1.</span> <span class="nav-text">处理自定义注解的步骤:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u540E_u7EED_u66F4_u65B0_u4E2D_u2026"><span class="nav-number">2.2.</span> <span class="nav-text">后续更新中….</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java_u57FA_u672C_u7C7B_u578B"><span class="nav-number">1.</span> <span class="nav-text">java基本类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F"><span class="nav-number">1.1.</span> <span class="nav-text">四道Java基础题 你能对几道？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F15_u8A00"><span class="nav-number">1.1.1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u56DB_u9053Java_u57FA_u7840_u9898__u4F60_u80FD_u5BF9_u51E0_u9053_uFF1F_2815/12/30_29"><span class="nav-number">1.1.2.</span> <span class="nav-text">四道Java基础题 你能对几道？(15/12/30)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u6269_u5C55_u9605_u8BFB"><span class="nav-number">1.1.3.</span> <span class="nav-text">扩展阅读</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5BF9_u4E8Efor_u5FAA_u73AF_u4E2D_u7684i++__u548C_++i__u7684_u63A2_u8BA8"><span class="nav-number">1.2.</span> <span class="nav-text">对于for循环中的i++ 和 ++i 的探讨</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6700_u7B80_u5355_u7684_u9A8C_u8BC1_u65B9_u5F0F_u5C31_u662F_u5199_u4EE3_u7801_u9A8C_u8BC1_u4E00_u4E0B_3A"><span class="nav-number">1.2.1.</span> <span class="nav-text">最简单的验证方式就是写代码验证一下:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java__u6CE8_u89E3"><span class="nav-number">2.</span> <span class="nav-text">java 注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u521D_u6B21_u63A5_u89E6java__u6CE8_u89E3_28Annotation_29"><span class="nav-number">2.1.</span> <span class="nav-text">初次接触java 注解(Annotation)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6269_u5C55_u9605_u8BFB-1"><span class="nav-number">2.1.1.</span> <span class="nav-text">扩展阅读</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java__u679A_u4E3E"><span class="nav-number">3.</span> <span class="nav-text">java 枚举</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u521D_u6B21_u63A5_u89E6java__u679A_u4E3E_28Enum_29"><span class="nav-number">3.1.</span> <span class="nav-text">初次接触java 枚举(Enum)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6269_u5C55_u9605_u8BFB-2"><span class="nav-number">3.1.1.</span> <span class="nav-text">扩展阅读</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java__u8BBE_u8BA1_u6A21_u5F0F"><span class="nav-number">4.</span> <span class="nav-text">java 设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4EE3_u7406_u6A21_u5F0F_28Proxy_29"><span class="nav-number">4.1.</span> <span class="nav-text">代理模式(Proxy)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UML_u56FE_28_u7EDF_u4E00_u5EFA_u6A21_u8BED_u8A00_29"><span class="nav-number">4.2.</span> <span class="nav-text">UML图(统一建模语言)</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
