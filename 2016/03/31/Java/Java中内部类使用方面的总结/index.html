@@ -1,0 +1,782 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="梦醒依旧流年." type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="以下知识点通过阅读Thinking in Java总结,也是平常不怎么接触到的技巧.
+
+内部非静态类的创建  需要创建一个这样的类,首先需要外部类的引用,然后用.new方法去创建这个外部类的内部类.原因也很简单——因为一个非静态的内部类需要访问外部类的话,需要持有这个外部类的引用，不然不知道访问哪个外部类,代码如下:
+1234567891011public class DotNew &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java中内部类使用方面的总结">
+<meta property="og:url" content="http://crainax.github.io/2016/03/31/Java/Java中内部类使用方面的总结/index.html">
+<meta property="og:site_name" content="梦醒依旧流年.">
+<meta property="og:description" content="以下知识点通过阅读Thinking in Java总结,也是平常不怎么接触到的技巧.
+
+内部非静态类的创建  需要创建一个这样的类,首先需要外部类的引用,然后用.new方法去创建这个外部类的内部类.原因也很简单——因为一个非静态的内部类需要访问外部类的话,需要持有这个外部类的引用，不然不知道访问哪个外部类,代码如下:
+1234567891011public class DotNew &amp;#123;">
+<meta property="og:updated_time" content="2016-04-01T13:49:18.732Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java中内部类使用方面的总结">
+<meta name="twitter:description" content="以下知识点通过阅读Thinking in Java总结,也是平常不怎么接触到的技巧.
+
+内部非静态类的创建  需要创建一个这样的类,首先需要外部类的引用,然后用.new方法去创建这个外部类的内部类.原因也很简单——因为一个非静态的内部类需要访问外部类的话,需要持有这个外部类的引用，不然不知道访问哪个外部类,代码如下:
+1234567891011public class DotNew &amp;#123;">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    sidebar: 'always',
+    motion: true
+  };
+</script>
+
+  <title> Java中内部类使用方面的总结 | 梦醒依旧流年. </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?dbff5548869ec83e45508084cdfc0f47";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">梦醒依旧流年.</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+        <li class="menu-item menu-item-search">
+          <a href="#" class="st-search-show-outputs">
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'iHq3__LJhtPGwFabKPks','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Java中内部类使用方面的总结
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-03-31T16:26:30+08:00" content="2016-03-31">
+              2016-03-31
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分类于
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/31/Java/Java中内部类使用方面的总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/Java/Java中内部类使用方面的总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><blockquote>
+<p>以下知识点通过阅读Thinking in Java总结,也是平常不怎么接触到的技巧.</p>
+</blockquote>
+<h2 id="u5185_u90E8_u975E_u9759_u6001_u7C7B_u7684_u521B_u5EFA"><a href="#u5185_u90E8_u975E_u9759_u6001_u7C7B_u7684_u521B_u5EFA" class="headerlink" title="内部非静态类的创建"></a>内部非静态类的创建</h2><p>  需要创建一个这样的类,首先需要外部类的引用,然后用.new方法去创建这个外部类的内部类.原因也很简单——因为一个非静态的内部类需要访问外部类的话,需要持有这个外部类的引用，不然不知道访问哪个外部类,代码如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DotNew</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        DotNew dn = <span class="keyword">new</span> DotNew();</span><br><span class="line">        <span class="comment">//这样内部类就隐式的持有了这个dn的引用</span></span><br><span class="line">        DotNew.Inner dni = dn.new Inner();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u5185_u90E8_u7C7B_u548C_u5411_u4E0A_u8F6C_u578B"><a href="#u5185_u90E8_u7C7B_u548C_u5411_u4E0A_u8F6C_u578B" class="headerlink" title="内部类和向上转型"></a>内部类和向上转型</h2><p>  在定义一个接口后,我们可以在定义一个private的内部类,去实现这个接口,然后在外部类中去实现一个方法返回这个内部类,但是是以接口的形式去返回,这就能隐藏了这个类的细节.而private的访问权限也让外部不能直接转成这个内部类的形式,就完美的实现了对外暴露接口.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Parcel4</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">IDesination</span> <span class="keyword">implements</span> <span class="title">Destination</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">readLabel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Destination"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Destination <span class="title">getDestination</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> IDesination();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Parcel4 instance = <span class="keyword">new</span> Parcel4();</span><br><span class="line">        <span class="comment">//对外暴露了接口.</span></span><br><span class="line">        Destination destination = instance.getDestination();</span><br><span class="line">        System.out.println(destination.readLabel());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u5728_u533F_u540D_u5185_u90E8_u7C7B_u4E2D_u8BBF_u95EE_u5916_u90E8_u7C7B_u4E0D_u9700_u8981final_u7684_u65B9_u6CD5"><a href="#u5728_u533F_u540D_u5185_u90E8_u7C7B_u4E2D_u8BBF_u95EE_u5916_u90E8_u7C7B_u4E0D_u9700_u8981final_u7684_u65B9_u6CD5" class="headerlink" title="在匿名内部类中访问外部类不需要final的方法"></a>在匿名内部类中访问外部类不需要final的方法</h2><p>因为匿名内部类没有名字,故我们不能为其创建一个构造器去初始化这个类,但是我们可以用代码段去初始化匿名内部类,这样就可以实现访问外部类不需要final这个关键字了.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Base</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Base</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Base constructor, i = "</span> + i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AnonymousConstructor</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Base <span class="title">getBase</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Base(i) &#123;</span><br><span class="line">            &#123;</span><br><span class="line">              <span class="comment">//在这里可以访问外部类非final变量.</span></span><br><span class="line">                System.out.println(<span class="string">"Inside instance initializer"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                System.out.println(<span class="string">"In anonymous f()"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Base base = getBase(<span class="number">47</span>);</span><br><span class="line">        base.f();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="comment">/* Output:</span><br><span class="line">Base constructor, i = 47</span><br><span class="line">Inside instance initializer</span><br><span class="line">In anonymous f()</span><br><span class="line">*/</span><span class="comment">//:~</span></span><br></pre></td></tr></table></figure>
+<h2 id="u4E3A_u4EC0_u4E48_u5185_u90E8_u7C7B_u8BBF_u95EE_u7684_u5916_u90E8_u53D8_u91CF_u9700_u8981_u4F7F_u7528final_u4FEE_u9970"><a href="#u4E3A_u4EC0_u4E48_u5185_u90E8_u7C7B_u8BBF_u95EE_u7684_u5916_u90E8_u53D8_u91CF_u9700_u8981_u4F7F_u7528final_u4FEE_u9970" class="headerlink" title="为什么内部类访问的外部变量需要使用final修饰"></a>为什么内部类访问的外部变量需要使用final修饰</h2><blockquote>
+<p>  因为生命周期的原因。方法中的局部变量，方法结束后这个变量就要释放掉，final保证这个变量始终指向一个对象。<br>  首先，内部类和外部类其实是处于同一个级别，内部类不会因为定义在方法中就会随着方法的执行完毕而跟随者被销毁。问题就来了，如果外部类的方法中的变量不定义final，那么当外部类方法执行完毕的时候，这个局部变量肯定也就被GC了，然而内部类的某个方法还没有执行完，这个时候他所引用的外部变量已经找不到了。如果定义为final，java会将这个变量复制一份作为成员变量内置于内部类中，这样的话，由于final所修饰的值始终无法改变，所以这个变量所指向的内存区域就不会变。<br> 摘自<a href="http://blog.csdn.net/liushuai_ly/article/details/8197564" target="_blank" rel="external">为什么内部类访问的外部变量需要使用final修饰</a>.</p>
+</blockquote>
+<h2 id="u63A5_u53E3_u5185_u90E8_u7684_u7C7B"><a href="#u63A5_u53E3_u5185_u90E8_u7684_u7C7B" class="headerlink" title="接口内部的类"></a>接口内部的类</h2><p>  正常情况下,不能在接口内部放置任何代码,但是静态内部类(下文简称嵌套类)却可以成为接口的一部分,因为接口中的任何成员变量都是<code>public</code>和<code>static</code>的,不违反接口的规则,甚至可以在内部实现其外部接口.代码如下:</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ClassInInterface</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">howdy</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Test</span> <span class="keyword">implements</span> <span class="title">ClassInInterface</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">howdy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"Howdy!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">new</span> Test().howdy();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u4E3A_u4EC0_u4E48_u9700_u8981_u5185_u90E8_u7C7B"><a href="#u4E3A_u4EC0_u4E48_u9700_u8981_u5185_u90E8_u7C7B" class="headerlink" title="为什么需要内部类"></a>为什么需要内部类</h2><p>  TIJ中描述这最吸引人的原因是:</p>
+<blockquote>
+<p>每个内部类都能独立地继承自一个(接口的)实现,所以无论外围类是否已经继承了某个(接口的)实现.对于内部类都没有影响.  </p>
+</blockquote>
+<p>  在某种需要下,我们需要某个类继承两个接口,这时候无论是一个类,还是内部类,都可以实现这种功能.但是如果我们需要实现继承两个<strong>抽象的类或者具体的类</strong>的时候,前者就不起作用了.这时候就需要我们使用内部类来实现多重继承的功能.一个简单的例子如下代码所示:</p>
+  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.crainax.tij.innerclasses;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * Created by Crainax on 2016/4/1.</span><br><span class="line"> */</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">E</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Z</span> <span class="keyword">extends</span> <span class="title">D</span> </span>&#123;</span><br><span class="line">    <span class="function">E <span class="title">makeE</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> E() &#123;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MultiImplementation</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">takeD</span><span class="params">(D d)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">takeE</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Z z = <span class="keyword">new</span> Z();</span><br><span class="line">        z.makeE();</span><br><span class="line">        takeD(z);</span><br><span class="line">        <span class="comment">//实现所需要的多重继承的功能.</span></span><br><span class="line">        takeE(z.makeE());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  使用了内部类不但解决了”多重继承”的问题,还具有以下一些特性:</p>
+<ol>
+<li>内部类可以有多个实例,每个实例都有自己的状态信息,并且与其外围类对象的信息相互独立.</li>
+<li>在单个外围类中,可以让多个内部类以不同的方式实现同一个接口,或继承同一个类.</li>
+<li>创建内部类对象的时刻并不依赖于外围类的创建.</li>
+<li>内部类并没有令人迷惑的”is-a”关系,它就是一个独立的实体.</li>
+</ol>
+<h2 id="u547D_u4EE4_u6A21_u5F0F_u4E0E_u5185_u90E8_u7C7B"><a href="#u547D_u4EE4_u6A21_u5F0F_u4E0E_u5185_u90E8_u7C7B" class="headerlink" title="命令模式与内部类"></a>命令模式与内部类</h2><p>  Thinking In Java 对于这里的描述很详细,表现了Java在这里优雅的解决方案,我就在这里概括几点:</p>
+<blockquote>
+<p> 其中:</p>
+<ol>
+<li>在事件驱动系统中,也就是在GUI问题中,用到了大量的内部类.</li>
+<li>其中分有<code>Event</code>抽象类,定义了事件的时间戳与一些特有的属性,其中有抽象方法 <code>action()</code>;还有<code>Controller</code>的类,能对<code>Event</code>起到一个遍历运行的作用.</li>
+<li>一个控制框架的特定实现,比如控制温室的运作,有灯光、水、温度调节器的开关，还有响铃和重新启动系统，每种操作都集成在<code>Controller</code>类中,无疑用命令模式是最好解决的.</li>
+<li>但是此时也有了一个问题,就是这个命令需要有<code>action()</code>的实现,又希望能访问到Controller的一些成员变量去控制这个行为.</li>
+<li>这时内部类就派上用场了,每个命令都写在<code>Controller</code>中,用内部类继承<code>Event</code>类,就能实现这个功能了.此时再配合上一个队列,就能实现事件的不断触发与执行过程了.</li>
+</ol>
+</blockquote>
+<h2 id="u5185_u90E8_u7C7B_u7684_u7EE7_u627F"><a href="#u5185_u90E8_u7C7B_u7684_u7EE7_u627F" class="headerlink" title="内部类的继承"></a>内部类的继承</h2><p>  因为内部类隐式的持有外部类(下文称A)的引用,所以如果需要另外一个外部类(下文称B)去继承这个内部类的话,那么B也需要这个A的引用,不然不能经过编译,这时候可以在构造器中去说明对A引用的持有:<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">WithInner</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Inner</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InheritInner</span> <span class="keyword">extends</span> <span class="title">WithInner</span>.<span class="title">Inner</span> </span>&#123;</span><br><span class="line">    <span class="comment">//  ! InheritInner() &#123;&#125; // 不能经过编译</span></span><br><span class="line">    InheritInner(WithInner wi) &#123;</span><br><span class="line">        wi.<span class="keyword">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        WithInner wi = <span class="keyword">new</span> WithInner();</span><br><span class="line">        InheritInner ii = <span class="keyword">new</span> InheritInner(wi);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>  当然还有一种情况,即B也有一个内部类,B继承于A,B的内部类继承于A的内部类,此时就不需要说明这个引用的持有.</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/27/Android/Android收藏开源库汇总/" rel="next" title="Android收藏开源库汇总">
+                <i class="fa fa-chevron-left"></i> Android收藏开源库汇总
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/31/Java/Java中内部类使用方面的总结/"
+           data-title="Java中内部类使用方面的总结" data-url="http://crainax.github.io/2016/03/31/Java/Java中内部类使用方面的总结/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="http://7xpmqf.com1.z0.glb.clouddn.com/16-1-13/75773997.jpg" alt="Crainax" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">Crainax</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">Crainax's Blog.</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">5</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Crainax/crainax.github.io" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/zhu-ze-ji-43" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> zhihu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5185_u90E8_u975E_u9759_u6001_u7C7B_u7684_u521B_u5EFA"><span class="nav-number">1.</span> <span class="nav-text">内部非静态类的创建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5185_u90E8_u7C7B_u548C_u5411_u4E0A_u8F6C_u578B"><span class="nav-number">2.</span> <span class="nav-text">内部类和向上转型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5728_u533F_u540D_u5185_u90E8_u7C7B_u4E2D_u8BBF_u95EE_u5916_u90E8_u7C7B_u4E0D_u9700_u8981final_u7684_u65B9_u6CD5"><span class="nav-number">3.</span> <span class="nav-text">在匿名内部类中访问外部类不需要final的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E3A_u4EC0_u4E48_u5185_u90E8_u7C7B_u8BBF_u95EE_u7684_u5916_u90E8_u53D8_u91CF_u9700_u8981_u4F7F_u7528final_u4FEE_u9970"><span class="nav-number">4.</span> <span class="nav-text">为什么内部类访问的外部变量需要使用final修饰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u63A5_u53E3_u5185_u90E8_u7684_u7C7B"><span class="nav-number">5.</span> <span class="nav-text">接口内部的类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E3A_u4EC0_u4E48_u9700_u8981_u5185_u90E8_u7C7B"><span class="nav-number">6.</span> <span class="nav-text">为什么需要内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u547D_u4EE4_u6A21_u5F0F_u4E0E_u5185_u90E8_u7C7B"><span class="nav-number">7.</span> <span class="nav-text">命令模式与内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5185_u90E8_u7C7B_u7684_u7EE7_u627F"><span class="nav-number">8.</span> <span class="nav-text">内部类的继承</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Crainax</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"crainax"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>
