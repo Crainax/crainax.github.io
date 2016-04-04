@@ -55,21 +55,28 @@
 
 <meta name="description" content="这篇博文主要用于记录一些没见过的小tips~
 
-在Intellij IDEA中打开 assert关键字调试,应该在 Run-&amp;gt;Run Configurations-&amp;gt;VM Options中填写”-ea”,如下图">
+在Intellij IDEA中打开assert关键字调试,应该在 Run-&amp;gt;Run Configurations-&amp;gt;VM Options中填写&amp;quot;-ea&amp;quot;,如下图
+
+注意对新类编写hashCode()的方法,在HashMap每个键都是以散列码,也就是这个方法生成的数为主,而不是通过equals()方法去判断两个键是否相同">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java小技巧汇总">
 <meta property="og:url" content="http://crainax.github.io/2016/03/27/Java/Java小技巧汇总/index.html">
 <meta property="og:site_name" content="梦醒依旧流年.">
 <meta property="og:description" content="这篇博文主要用于记录一些没见过的小tips~
 
-在Intellij IDEA中打开 assert关键字调试,应该在 Run-&amp;gt;Run Configurations-&amp;gt;VM Options中填写”-ea”,如下图">
+在Intellij IDEA中打开assert关键字调试,应该在 Run-&amp;gt;Run Configurations-&amp;gt;VM Options中填写&amp;quot;-ea&amp;quot;,如下图
+
+注意对新类编写hashCode()的方法,在HashMap每个键都是以散列码,也就是这个方法生成的数为主,而不是通过equals()方法去判断两个键是否相同">
 <meta property="og:image" content="http://7xpmqf.com1.z0.glb.clouddn.com/16-3-27/94499851.jpg">
-<meta property="og:updated_time" content="2016-03-27T12:52:18.050Z">
+<meta property="og:image" content="http://7xpmqf.com1.z0.glb.clouddn.com/16-4-3/24688916.jpg">
+<meta property="og:updated_time" content="2016-04-03T07:56:39.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java小技巧汇总">
 <meta name="twitter:description" content="这篇博文主要用于记录一些没见过的小tips~
 
-在Intellij IDEA中打开 assert关键字调试,应该在 Run-&amp;gt;Run Configurations-&amp;gt;VM Options中填写”-ea”,如下图">
+在Intellij IDEA中打开assert关键字调试,应该在 Run-&amp;gt;Run Configurations-&amp;gt;VM Options中填写&amp;quot;-ea&amp;quot;,如下图
+
+注意对新类编写hashCode()的方法,在HashMap每个键都是以散列码,也就是这个方法生成的数为主,而不是通过equals()方法去判断两个键是否相同">
 <meta name="twitter:image" content="http://7xpmqf.com1.z0.glb.clouddn.com/16-3-27/94499851.jpg">
 
 
@@ -315,7 +322,10 @@
       
         <span itemprop="articleBody"><p>这篇博文主要用于记录一些没见过的小tips~</p>
 <ol>
-<li>在Intellij IDEA中打开 assert关键字调试,应该在 Run-&gt;Run Configurations-&gt;VM Options中填写”-ea”,如下图<br><img src="http://7xpmqf.com1.z0.glb.clouddn.com/16-3-27/94499851.jpg" alt=""></li>
+<li><p>在<code>Intellij IDEA</code>中打开<code>assert</code>关键字调试,应该在 Run-&gt;Run Configurations-&gt;VM Options中填写<code>&quot;-ea&quot;</code>,如下图<br><img src="http://7xpmqf.com1.z0.glb.clouddn.com/16-3-27/94499851.jpg" alt=""></p>
+</li>
+<li><p>注意对新类编写<code>hashCode()</code>的方法,在<code>HashMap</code>每个键都是以散列码,也就是这个方法生成的数为主,而不是通过<code>equals()</code>方法去判断两个键是否相同.只不过默认时候<code>hashCode()</code>是返回当前对象的地址值,而<code>equals()</code>默认时候也是判断两个对象的地址值是否相等.我们可以使用IDEA快速生成这两个方法.<br><img src="http://7xpmqf.com1.z0.glb.clouddn.com/16-4-3/24688916.jpg" alt=""><br>测试代码地址:<a href="https://github.com/Crainax/DemoCode/blob/master/Java/JavaTips/HashTest.java" target="_blank" rel="external">点击进入</a></p>
+</li>
 </ol>
 </span>
       
